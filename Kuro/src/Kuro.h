@@ -1,8 +1,9 @@
 #pragma once
 
 // For use by Kuro Engine application
-#include "Engine/Application.h"
+#include "engine/Application.h"
+#include "engine/Log.h"
 
 //-----------Entry Point--------------
-#include "Engine/EntryPoint.h"
+#include "engine/EntryPoint.h"
 //------------------------------------

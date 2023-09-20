@@ -32,7 +32,8 @@ project "Kuro"
 
     includedirs
     {
-        "%{prj.name}/src"
+        "%{prj.name}/src",
+        "%{prj.name}/vendor/spdlog/include"
     }
 
     filter "system:windows"
@@ -82,7 +83,8 @@ project "Sandbox"
 
     includedirs
     {
-        "Kuro/src"
+        "Kuro/src",
+        "Kuro/vendor/spdlog/include"
     }
 
     links

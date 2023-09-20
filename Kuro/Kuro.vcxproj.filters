@@ -4,6 +4,9 @@
     <Filter Include="engine">
       <UniqueIdentifier>{FBDB78FB-E77D-A3D1-D038-B725BC792A22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="engine\event">
+      <UniqueIdentifier>{AC3DD3B5-98A0-625A-4126-9B102D682EDD}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Kuro.h" />
@@ -16,10 +19,19 @@
     <ClInclude Include="src\engine\EntryPoint.h">
       <Filter>engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\engine\Log.h">
+      <Filter>engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\event\Event.h">
+      <Filter>engine\event</Filter>
+    </ClInclude>
     <ClInclude Include="src\engineph.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\engine\Application.cpp">
+      <Filter>engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\Log.cpp">
       <Filter>engine</Filter>
     </ClCompile>
     <ClCompile Include="src\engineph.cpp" />
