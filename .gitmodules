@@ -1,0 +1,3 @@
+[submodule "Kuro/vendor/spdlog"]
+	path = Kuro/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
