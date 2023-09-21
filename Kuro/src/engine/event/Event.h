@@ -24,7 +24,7 @@ namespace Kuro
 		EventCategoryMouseButton		= BIT(4)
 	};
 
-#define	EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
+#define	EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
 																virtual EventType GetEventType() const override { return GetStaticType(); }\
 																virtual const char* GetName() const override { return #type; }
 
@@ -62,7 +62,7 @@ namespace Kuro
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.Handled = func(*(T*)&m_Event);
+				m_Event.Handled |= func(*(T*)&m_Event);
 				return true;
 			}
 			return false;

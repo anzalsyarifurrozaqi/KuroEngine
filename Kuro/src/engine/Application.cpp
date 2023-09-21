@@ -6,12 +6,16 @@
 
 namespace Kuro
 {
+#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
+
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
 	{
 		KURO_CORE_ASSERT(!s_Instance, "Application Already Exist!");
 		s_Instance = this;
+		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 	}
 
 	Application::~Application()
@@ -20,11 +24,23 @@ namespace Kuro
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		if (e.IsInCategory(EventCategoryApplication))
+		while (m_Running)
 		{
-			KURO_CORE_TRACE(e);
+			m_Window->OnUpdate();
 		}
-		while (true);
+	}
+
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowCloseEvent));		
+
+		KURO_CORE_INFO("{0}", e);
+	}
+
+	bool Application::OnWindowCloseEvent(WindowCloseEvent& e)
+	{
+		m_Running = false;
+		return true;
 	}
 }

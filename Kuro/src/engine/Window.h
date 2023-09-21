@@ -25,7 +25,9 @@ namespace Kuro
 	class KURO_API Window
 	{
 	public:
-		virtual ~Window();
+		using EventCallbackFn = std::function<void(Event&)>;
+
+		virtual ~Window() {};
 
 		virtual void OnUpdate() = 0;
 
@@ -33,8 +35,9 @@ namespace Kuro
 		virtual unsigned int GetHeight() const = 0;
 
 		// Window Attributes
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 		virtual void SetVSync(bool enabled) = 0;
-		virtual void IsVSync() const = 0;
+		virtual bool IsVSync() const = 0;
 
 		virtual void* GetNativeWindow() const = 0;
 

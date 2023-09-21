@@ -16,9 +16,9 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Kuro/vendor/GLFW/include"
 
 group "Dependencies"
-{
     include "Kuro/vendor/GLFW"
-}
+
+group ""
 
 project "Kuro"
     location "Kuro"

@@ -51,7 +51,7 @@ namespace Kuro {
 
 		std::string ToString() const override {
 			std::stringstream ss;
-			ss << "KeyPressedEvent: " << m_KeyCode;
+			ss << "KeyTypedEvent: " << m_KeyCode;
 			return ss.str();
 		}
 
