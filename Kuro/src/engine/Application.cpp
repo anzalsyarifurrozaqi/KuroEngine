@@ -2,6 +2,8 @@
 #include "Application.h"
 #include "engine/Log.h"
 
+#include "engine/event/ApplicationEvent.h"
+
 namespace Kuro
 {
 	Application* Application::s_Instance = nullptr;
@@ -18,6 +20,11 @@ namespace Kuro
 
 	void Application::Run()
 	{
-		while (m_Running);
+		WindowResizeEvent e(1280, 720);
+		if (e.IsInCategory(EventCategoryApplication))
+		{
+			KURO_CORE_TRACE(e);
+		}
+		while (true);
 	}
 }

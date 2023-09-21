@@ -11,6 +11,15 @@ workspace "Kuro"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Kuro/vendor/GLFW/include"
+
+group "Dependencies"
+{
+    include "Kuro/vendor/GLFW"
+}
+
 project "Kuro"
     location "Kuro"
     kind "SharedLib"
@@ -33,7 +42,13 @@ project "Kuro"
     includedirs
     {
         "%{prj.name}/src",
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links
+    {
+        "GLFW"
     }
 
     filter "system:windows"
@@ -42,7 +57,8 @@ project "Kuro"
         defines
         {
             "KURO_PLATFORM_WINDOWS",
-            "KURO_BUILD_DLL"
+            "KURO_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
@@ -84,7 +100,8 @@ project "Sandbox"
     includedirs
     {
         "Kuro/src",
-        "Kuro/vendor/spdlog/include"
+        "Kuro/vendor/spdlog/include",
+        "Kuro/vendor"
     }
 
     links

@@ -12,6 +12,8 @@
 #include <unordered_map>
 #include <unordered_set>
 
+#include "engine/Log.h"
+
 #ifdef KURO_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif // NEUTRON_PLATFORM_WINDOWS
