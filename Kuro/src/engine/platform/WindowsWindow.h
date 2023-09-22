@@ -1,7 +1,9 @@
 #pragma once
 
 #include "engine/Window.h"
+
 #include <GLFW/glfw3.h>
+#include <vulkan/vulkan.hpp>
 
 namespace Kuro
 {

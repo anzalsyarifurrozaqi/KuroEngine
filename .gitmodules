@@ -4,3 +4,6 @@
 [submodule "Kuro/vendor/spdlog"]
 	path = Kuro/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "Kuro/vendor/GLM"]
+	path = Kuro/vendor/GLM
+	url = https://github.com/g-truc/glm.git

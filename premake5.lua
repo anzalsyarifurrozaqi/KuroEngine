@@ -14,9 +14,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Kuro/vendor/GLFW/include"
+IncludeDir["GLM"] = "Kuro/vendor/GLM"
+IncludeDir["Vulkan"] = "Kuro/vendor/Vulkan-Hpp"
 
 group "Dependencies"
-    include "Kuro/vendor/GLFW"
+    include "Kuro/vendor/GLFW"    
 
 group ""
 
@@ -36,14 +38,22 @@ project "Kuro"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
+        "%{prj.name}/vendor/GLM/glm/**.hpp",
+        "%{prj.name}/vendor/GLM/glm/**.inl",
+        "%{prj.name}/vendor/Vulkan-Hpp/vulkan/**.hpp",
+        "%{prj.name}/vendor/Vulkan-Hpp/vulkan/**.c",
+        "%{prj.name}/vendor/Vulkan-Hpp/vulkan/**.cppm"
     }
 
     includedirs
     {
         "%{prj.name}/src",
         "%{prj.name}/vendor/spdlog/include",
-        "%{IncludeDir.GLFW}"
+        "%{IncludeDir.GLFW}",
+        "%{IncludeDir.GLM}",
+        "%{IncludeDir.Vulkan}"
+
     }
 
     links
@@ -94,14 +104,15 @@ project "Sandbox"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp"        
     }
 
     includedirs
     {
-        "Kuro/src",
+        "Kuro/src",        
         "Kuro/vendor/spdlog/include",
-        "Kuro/vendor"
+        "%{IncludeDir.GLM}",
+        "%{IncludeDir.Vulkan}"
     }
 
     links
