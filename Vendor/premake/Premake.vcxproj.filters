@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="..">
+      <UniqueIdentifier>{61705900-4DFC-870B-B6AA-880BA255880B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Kuro">
+      <UniqueIdentifier>{F1758147-5D55-00E3-666D-8BB9D2CB6644}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Kuro\vendor">
+      <UniqueIdentifier>{2ED33869-1AA1-2C6F-0335-9D95EFA108D4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Kuro\vendor\GLFW">
+      <UniqueIdentifier>{2DBB7C8B-991C-5A99-228A-A04B8EEA9058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Kuro\vendor\Glad">
+      <UniqueIdentifier>{D5467D8B-41A8-5A99-CA15-A14B36769158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Sandbox">
+      <UniqueIdentifier>{3F7B6B1D-2B33-AD6A-943A-86C68011485B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Kuro\premake5.lua">
+      <Filter>..\Kuro</Filter>
+    </None>
+    <None Include="..\..\Kuro\vendor\GLFW\premake5.lua">
+      <Filter>..\Kuro\vendor\GLFW</Filter>
+    </None>
+    <None Include="..\..\Kuro\vendor\Glad\premake5.lua">
+      <Filter>..\Kuro\vendor\Glad</Filter>
+    </None>
+    <None Include="..\..\Sandbox\premake5.lua">
+      <Filter>..\Sandbox</Filter>
+    </None>
+    <None Include="..\..\premake5.lua">
+      <Filter>..</Filter>
+    </None>
+    <None Include="premake5.lua" />
+  </ItemGroup>
+</Project>

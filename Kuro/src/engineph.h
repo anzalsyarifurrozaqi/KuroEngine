@@ -12,7 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "engine/Log.h"
+#include "Kuro/Core/Log.h"
 
 #ifdef KURO_PLATFORM_WINDOWS
 	#include <Windows.h>

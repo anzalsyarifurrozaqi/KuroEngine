@@ -1,9 +1,9 @@
 [submodule "Kuro/vendor/GLFW"]
 	path = Kuro/vendor/GLFW
-	url = https://github.com/TheCherno/glfw.git
-[submodule "Kuro/vendor/spdlog"]
-	path = Kuro/vendor/spdlog
-	url = https://github.com/gabime/spdlog.git
+	url = https://github.com/glfw/glfw.git
 [submodule "Kuro/vendor/GLM"]
 	path = Kuro/vendor/GLM
 	url = https://github.com/g-truc/glm.git
+[submodule "Kuro/vendor/spdlog"]
+	path = Kuro/vendor/spdlog
+	url = https://github.com/gabime/spdlog.git
