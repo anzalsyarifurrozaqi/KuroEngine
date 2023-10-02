@@ -9,15 +9,18 @@ namespace Kuro
 	public:
 		OpenGLVertexBuffer(uint32_t size);
 		OpenGLVertexBuffer(float* vertices, uint32_t size);
-
-		// Inherited via VertexBuffer
+		virtual ~OpenGLVertexBuffer();
+		
 		void Bind() const override;
 		void Unbind() const override;
+
 		void SetData(const void* data, uint32_t size) override;
-		const BufferLayout& GetLayout() const override { return m_Layout; }
-		void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
+
+		virtual const BufferLayout& GetLayout() const override { return m_Layout; }
+		virtual  void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
+
 	private:
-		uint32_t m_RendereID;
+		uint32_t m_RendererID;
 		BufferLayout m_Layout;
 	};
 
@@ -34,7 +37,7 @@ namespace Kuro
 		virtual uint32_t GetCount() const { return m_Count; }
 
 	private:
-		uint32_t m_RenderID;
+		uint32_t m_RendererID;
 		uint32_t m_Count;
 	};
 }

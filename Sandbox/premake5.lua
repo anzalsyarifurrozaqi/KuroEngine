@@ -17,8 +17,8 @@ project "Sandbox"
 	{
 		"%{wks.location}/Kuro/vendor/spdlog/include",
         "%{wks.location}/Kuro/src",		
-		"%{wks.location}/Hazel/vendor",
-		"%{IncludeDir.glm}"
+		"%{wks.location}/Kuro/vendor",
+		"%{IncludeDir.glm}"		
 	}
 
 	links
@@ -30,16 +30,19 @@ project "Sandbox"
 		systemversion "latest"
 
 	filter "configurations:Debug"
-		defines "HZ_DEBUG"
+		defines "KURO_DEBUG"
+		staticruntime "off"
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
-		defines "HZ_RELEASE"
+		defines "KURO_RELEASE"		
+		staticruntime "off"
 		runtime "Release"
 		optimize "on"
 
 	filter "configurations:Dist"
-		defines "HZ_DIST"
+		defines "KURO_DIST"		
+		staticruntime "off"
 		runtime "Release"
 		optimize "on"

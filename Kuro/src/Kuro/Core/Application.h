@@ -34,6 +34,10 @@ namespace Kuro
 
 		std::unique_ptr<Window> m_Window;
 		bool OnWindowCloseEvent(WindowCloseEvent& e);
+		bool OnWindowResize(WindowResizeEvent& e);
+
+		// test
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBufer;
 	};
 
 	// To be defined in CLIENT

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Kuro/Core/Window.h"
+#include "Kuro/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 //#include <vulkan/vulkan.hpp>
@@ -31,6 +32,7 @@ namespace Kuro
 		
 	private:
 		GLFWwindow* m_Window;
+		Scope<GraphicsContext> m_Context;
 
 		struct WindowData
 		{

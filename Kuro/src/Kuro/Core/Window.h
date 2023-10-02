@@ -1,7 +1,5 @@
 #pragma once
 
-#include "engineph.h"
-
 #include "Base.h"
 #include "Kuro/Events/Event.h"
 
@@ -41,6 +39,6 @@ namespace Kuro
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

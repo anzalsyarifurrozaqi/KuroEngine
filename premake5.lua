@@ -28,6 +28,7 @@ group "Dependencies"
 	include "vendor/premake"	
 	include "Kuro/vendor/GLFW"
 	include "Kuro/vendor/Glad"
+	include "Kuro/vendor/SPIRV-Cross"
 group ""
 
 group "Core"

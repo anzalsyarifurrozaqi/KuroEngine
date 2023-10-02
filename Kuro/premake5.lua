@@ -21,22 +21,27 @@ project "Kuro"
 	defines
 	{
 		"_CRT_SECURE_NO_WARNINGS",
-		"GLFW_INCLUDE_NONE"
+		"GLFW_INCLUDE_NONE"		
 	}
 
 	includedirs
 	{
 		"src",
-		"vendor/spdlog/include",
+		"vendor/spdlog/include",		
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		-- "%{IncludeDir.SPIRV-Cross}",
+		"%{IncludeDir.VulkanSDK}"
     }
 
 	links
 	{
 		"GLFW",
-		"Glad"
+		"Glad",
+		"SPIRV-Cross",
+		"opengl32.lib",
+		"%{Library.ShaderC}"
 	}
 
 	filter "system:windows"
@@ -48,6 +53,10 @@ project "Kuro"
 
 		links
 		{
+			-- "%{Library.WinSock}",
+			-- "%{Library.WinMM}",
+			-- "%{Library.WinVersion}",
+			-- "%{Library.BCrypt}",
 		}
 
 		postbuildcommands
@@ -57,27 +66,39 @@ project "Kuro"
 
 	filter "configurations:Debug"
 		defines "KURO_DEBUG"
+		staticruntime "off"
 		runtime "Debug"
 		symbols "on"
 
 		links
 		{
+			-- "%{Library.ShaderC_Debug}",
+			-- "%{Library.SPIRV_Cross_Debug}",
+			-- "%{Library.SPIRV_Cross_GLSL_Debug}"
 		}
 
 	filter "configurations:Release"
 		defines "KURO_RELEASE"
+		staticruntime "off"
 		runtime "Release"
 		optimize "on"
 
 		links
 		{
+			-- "%{Library.ShaderC_Release}",
+			-- "%{Library.SPIRV_Cross_Release}",
+			-- "%{Library.SPIRV_Cross_GLSL_Release}"
 		}
 
 	filter "configurations:Dist"
 		defines "KURO_DIST"
+		staticruntime "off"
 		runtime "Release"
 		optimize "on"
 
 		links
 		{
+			-- "%{Library.ShaderC_Release}",
+			-- "%{Library.SPIRV_Cross_Release}",
+			-- "%{Library.SPIRV_Cross_GLSL_Release}"
         }

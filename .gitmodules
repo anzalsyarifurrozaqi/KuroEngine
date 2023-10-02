@@ -7,3 +7,6 @@
 [submodule "Kuro/vendor/spdlog"]
 	path = Kuro/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "Kuro/vendor/SPIRV-Cross"]
+	path = Kuro/vendor/SPIRV-Cross
+	url = https://github.com/KhronosGroup/SPIRV-Cross.git

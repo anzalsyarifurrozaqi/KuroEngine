@@ -1,23 +1,20 @@
 #include "engineph.h"
 #include "WindowsWindow.h"
 
+#include "Kuro/Renderer/Renderer.h"
+
 #include "Kuro/Events/ApplicationEvent.h"
 #include "Kuro/Events/MouseEvent.h"
 #include "Kuro/Events/KeyEvent.h"
 
 namespace Kuro
 {
-	static bool s_GLFWInitialized = false;
+	static uint8_t s_GLFWWindowCount = 0;
 
 	static void GLFWErrorCallback(int error, const char* description)
 	{
 		KURO_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
-
-	Window* Window::Create(const WindowProps& props)
-	{
-		return new WindowsWindow(props);
-	}	
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
@@ -31,8 +28,8 @@ namespace Kuro
 
 	void WindowsWindow::OnUpdate()
 	{
+		m_Context->SwapBuffers();
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)
@@ -62,24 +59,29 @@ namespace Kuro
 		
 		KURO_CORE_INFO("Creating Window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
-		if (!s_GLFWInitialized)
+		if (s_GLFWWindowCount == 0)
 		{
 			int Success = glfwInit();
 			KURO_CORE_ASSERT(Success, "Could not initialize GLFW!");
-
-			glfwSetErrorCallback(GLFWErrorCallback);
-			s_GLFWInitialized = true;
+			glfwSetErrorCallback(GLFWErrorCallback);			
 		}
 
-		glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
+		{
+#if defined(KURO_DEBUG)
+			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+#endif			
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+			++s_GLFWWindowCount;
+		}
+		
+		m_Context = GraphicsContext::Create(m_Window);
+		m_Context->Init();
+
+		//glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
-		// Vulkan
-		uint32_t extensionCount = 0;
-		//vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
 
 		// Set GLFW Callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
@@ -168,5 +170,11 @@ namespace Kuro
 	void WindowsWindow::Shutdown()
 	{
 		glfwDestroyWindow(m_Window);
+		--s_GLFWWindowCount;
+
+		if (s_GLFWWindowCount == 0)
+		{
+			glfwTerminate();
+		}
 	}
 }

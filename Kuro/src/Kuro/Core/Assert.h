@@ -1,9 +1,19 @@
 #pragma once
 
 #ifdef KURO_ENABLE_ASSERTS
-	#define KURO_ASSERT(x, ...) {if(!(x)) { KURO_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
-	#define KURO_CORE_ASSERT(x, ...) {if(!(x)) { KURO_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); }}
+	// Alteratively we could use the same "default" message for both "WITH_MSG" and "NO_MSG" and
+	// provide support for custom formatting by concatenating the formatting string instead of having the format inside the default message
+	#define KURO_INTERNAL_ASSERT_IMPL(type, check, msg, ...) { if(!(check)) { KURO##type##ERROR(msg, __VA_ARGS__); KURO_DEBUGBREAK(); } }
+	#define KURO_INTERNAL_ASSERT_WITH_MSG(type, check, ...) KURO_INTERNAL_ASSERT_IMPL(type, check, "Assertion failed: {0}", __VA_ARGS__)
+	#define KURO_INTERNAL_ASSERT_NO_MSG(type, check) KURO_INTERNAL_ASSERT_IMPL(type, check, "Assertion '{0}' failed at {1}:{2}", KURO_STRINGIFY_MACRO(check), std::filesystem::path(__FILE__).filename().string(), __LINE__)
+
+	#define KURO_INTERNAL_ASSERT_GET_MACRO_NAME(arg1, arg2, macro, ...) macro
+	#define KURO_INTERNAL_ASSERT_GET_MACRO(...) KURO_EXPAND_MACRO( KURO_INTERNAL_ASSERT_GET_MACRO_NAME(__VA_ARGS__, KURO_INTERNAL_ASSERT_WITH_MSG, KURO_INTERNAL_ASSERT_NO_MSG))
+	
+	// Currently accepts at least the condition and one additional parameter (the message) being optional
+	#define KURO_ASSERT(...) KURO_EXPAND_MACRO( KURO_INTERNAL_ASSERT_GET_MACRO(__VA_ARGS__)(_, __VA_ARGS__) )
+	#define KURO_CORE_ASSERT(...) KURO_EXPAND_MACRO( KURO_INTERNAL_ASSERT_GET_MACRO(__VA_ARGS__)(_CORE_, __VA_ARGS__) )
 #else
-	#define KURO_ASSERT(x, ...)
-	#define KURO_CORE_ASSERT(x, ...)
+	#define KURO_ASSERT(...)
+	#define KURO_CORE_ASSERT(...)
 #endif // KURO_ENABLE_ASSERTS

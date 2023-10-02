@@ -1,1 +1,100 @@
-[10:54:08] [info] KURO: Creating Window Kuro Engine (1280, 720)
+[15:04:18] [info] KURO: Creating Window Kuro Engine (1280, 720)
+[15:04:19] [info] KURO: OpenGL Info:
+[15:04:19] [info] KURO:   Vendor: NVIDIA Corporation
+[15:04:19] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
+[15:04:19] [info] KURO:   Version: 4.6.0 NVIDIA 537.42
+[15:04:19] [trace] KURO: 12
+[15:04:19] [info] KURO: ShaderLibrary::Load
+[15:04:19] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/SampleVertexShader.glsl
+[15:04:19] [info] KURO: OpenGLShader::ReadFile
+[15:04:19] [info] KURO: OpenGLShader::PreProcess
+[15:04:19] [info] KURO: OpenGLShader::CompileOrGetVulkanBinaries
+[15:04:19] [info] KURO: stage : 35633
+[15:04:19] [info] KURO: source : #version 330 core
+layout (location=0) in vec3 position;
+
+void main()
+{
+	gl_Position=vec4(position.x, position.y,position.z,1.0);
+}
+[15:04:19] [info] KURO: Read Cached File
+[15:04:19] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[15:04:19] [info] KURO: stage : 35633
+[15:04:19] [info] KURO: source : false
+[15:04:19] [info] KURO: Run Cached File
+[15:04:19] [info] KURO: OpenGLShader::CreateProgram
+[15:04:19] [warning] KURO: Shader creation took 1.9768002 ms
+[15:04:19] [info] KURO: OpenGLShader::OpenGLShader name : SampleVertexShader
+[15:04:19] [info] KURO: ShaderLibrary::Add
+[15:04:19] [info] KURO: ShaderLibrary::Add
+[15:04:19] [info] KURO: ShaderLibrary::Exist
+[15:04:19] [info] KURO: ShaderLibrary::Load
+[15:04:19] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/SampleFragmentShader.glsl
+[15:04:19] [info] KURO: OpenGLShader::ReadFile
+[15:04:19] [info] KURO: OpenGLShader::PreProcess
+[15:04:19] [info] KURO: OpenGLShader::CompileOrGetVulkanBinaries
+[15:04:19] [info] KURO: stage : 35632
+[15:04:19] [info] KURO: source : #version 330 core
+
+// Ouput data
+layout (location=0) out vec3 color;
+
+void main()
+{
+	// Output color = red 
+	color = vec3(1,0,0);
+
+}
+[15:04:19] [info] KURO: Read Cached File
+[15:04:19] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[15:04:19] [info] KURO: stage : 35632
+[15:04:19] [info] KURO: source : false
+[15:04:19] [info] KURO: Run Cached File
+[15:04:19] [info] KURO: OpenGLShader::CreateProgram
+[15:04:19] [warning] KURO: Shader creation took 8.4034 ms
+[15:04:19] [info] KURO: OpenGLShader::OpenGLShader name : SampleFragmentShader
+[15:04:19] [info] KURO: ShaderLibrary::Add
+[15:04:19] [info] KURO: ShaderLibrary::Add
+[15:04:19] [info] KURO: ShaderLibrary::Exist
+[15:04:19] [info] KURO: ShaderLibrary::Load
+[15:04:19] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/FlatColor.glsl
+[15:04:19] [info] KURO: OpenGLShader::ReadFile
+[15:04:19] [info] KURO: OpenGLShader::PreProcess
+[15:04:19] [info] KURO: OpenGLShader::CompileOrGetVulkanBinaries
+[15:04:19] [info] KURO: stage : 35633
+[15:04:19] [info] KURO: source : #version 330 core
+layout (location=0) in vec3 position;
+
+void main()
+{
+	gl_Position=vec4(position.x, position.y,position.z,1.0);
+}
+
+
+[15:04:19] [info] KURO: Read Cached File
+[15:04:19] [info] KURO: stage : 35632
+[15:04:19] [info] KURO: source : #version 330 core
+
+// Ouput data
+layout (location=0) out vec3 color;
+
+void main()
+{
+	// Output color = red 
+	color = vec3(1,0,0);
+
+}
+[15:04:19] [info] KURO: Read Cached File
+[15:04:19] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[15:04:19] [info] KURO: stage : 35633
+[15:04:19] [info] KURO: source : false
+[15:04:19] [info] KURO: Run Cached File
+[15:04:19] [info] KURO: stage : 35632
+[15:04:19] [info] KURO: source : false
+[15:04:19] [info] KURO: Run Cached File
+[15:04:19] [info] KURO: OpenGLShader::CreateProgram
+[15:04:19] [warning] KURO: Shader creation took 3.6726005 ms
+[15:04:19] [info] KURO: OpenGLShader::OpenGLShader name : FlatColor
+[15:04:19] [info] KURO: ShaderLibrary::Add
+[15:04:19] [info] KURO: ShaderLibrary::Add
+[15:04:19] [info] KURO: ShaderLibrary::Exist

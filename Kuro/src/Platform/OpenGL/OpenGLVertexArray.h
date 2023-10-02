@@ -6,7 +6,10 @@ namespace Kuro
 {
 	class OpenGLVertexArray : public VertexArray
 	{
-		// Inherited via VertexArray
+	public:
+		OpenGLVertexArray();
+		virtual ~OpenGLVertexArray();
+
 		void Bind() const override;
 		void UnBind() const override;
 

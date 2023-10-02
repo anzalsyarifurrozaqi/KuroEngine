@@ -102,6 +102,9 @@
     <ClInclude Include="src\Kuro\Renderer\Buffer.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\GraphicsContext.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\RenderCommand.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
@@ -109,6 +112,9 @@
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\RendererAPI.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\Shader.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\VertexArray.h">
@@ -120,7 +126,13 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1380,6 +1392,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Kuro\Renderer\OrthographicCameraController.h" />
+    <ClInclude Include="src\Kuro\Core\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kuro\Core\Application.cpp">
@@ -1394,7 +1409,13 @@
     <ClCompile Include="src\Kuro\Core\Log.cpp">
       <Filter>src\Kuro\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Kuro\Core\Window.cpp">
+      <Filter>src\Kuro\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\Buffer.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\GraphicsContext.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\RenderCommand.cpp">
@@ -1406,13 +1427,22 @@
     <ClCompile Include="src\Kuro\Renderer\RendererAPI.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\Shader.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\VertexArray.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
@@ -1427,5 +1457,7 @@
     <ClCompile Include="src\engineph.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>
