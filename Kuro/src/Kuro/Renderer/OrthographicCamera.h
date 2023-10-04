@@ -15,7 +15,7 @@ namespace Kuro
 		void SetPosition(const glm::vec3& position) { m_Position = position; RecalculateViewMatrix(); }
 
 		float GetRotation() const { return m_Rotation; }
-		float SetRotation(float rotation) { m_Rotation = rotation; RecalculateViewMatrix(); }
+		void SetRotation(float rotation) { m_Rotation = rotation; RecalculateViewMatrix(); }
 
 		const glm::mat4& GetProjectionMatrix() const { return m_ProjectionMatrix; }
 		const glm::mat4& GetViewProject() const { return m_ViewMatrix; }
@@ -30,6 +30,6 @@ namespace Kuro
 		glm::mat4 m_ViewProjectionMatrix;
 
 		glm::vec3 m_Position = { 0.0f, 0.0f, 0.0f };
-		float m_Rotation;
+		float m_Rotation = 0.0f;
 	};
 }

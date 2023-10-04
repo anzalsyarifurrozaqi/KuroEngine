@@ -80,7 +80,6 @@
     <None Include="..\..\Kuro\premake5.lua" />
     <None Include="..\..\Kuro\vendor\GLFW\premake5.lua" />
     <None Include="..\..\Kuro\vendor\Glad\premake5.lua" />
-    <None Include="..\..\Kuro\vendor\SPIRV-Cross\premake5.lua" />
     <None Include="..\..\Sandbox\premake5.lua" />
     <None Include="..\..\premake5.lua" />
     <None Include="premake5.lua" />

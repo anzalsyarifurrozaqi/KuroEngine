@@ -49,19 +49,7 @@ namespace Kuro
 	}
 
 	void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
-	{
-		// 1rst attribute buffer : vertices
-		//glEnableVertexAttribArray(0);
-		//vertexBuffer->Bind();
-		//glVertexAttribPointer(
-		//	0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-		//	3,                  // size
-		//	GL_FLOAT,           // type
-		//	GL_FALSE,           // normalized?
-		//	0,                  // stride
-		//	(void*)0            // array buffer offset
-		//);
-
+	{ 
 		KURO_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
 
 		glBindVertexArray(m_RendererID);
@@ -77,7 +65,6 @@ namespace Kuro
 			case ShaderDataType::Float3:
 			case ShaderDataType::Float4:
 			{				
-				KURO_CORE_TRACE("{}", layout.GetStride());
 				glEnableVertexAttribArray(m_VertexBufferIndex);				
 				glVertexAttribPointer(m_VertexBufferIndex,
 					element.GetComponentCount(),

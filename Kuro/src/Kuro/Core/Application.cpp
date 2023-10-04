@@ -23,7 +23,7 @@ namespace Kuro
 		m_Window = Window::Create(WindowProps("Kuro Engine"));
 		m_Window->SetEventCallback(KURO_BIND_EVENT_FN(OnEvent));
 
-		//Renderer::Init();
+		Renderer::Init();
 		
 		//glCreateVertexArrays(1, &VertexArrayID);
 		//glBindVertexArray(VertexArrayID);

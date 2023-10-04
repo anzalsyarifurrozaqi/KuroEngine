@@ -96,9 +96,8 @@ namespace Kuro
 		auto shaderSources = PreProcess(source);
 
 		{
-			Timer timer;
-			CompileOrGetVulkanBinaries(shaderSources);
-			CompileOrGetOnpenGLBinaries();
+			Timer timer;			
+			CompileOpenGLShader(shaderSources);
 			CreateProgram();
 			KURO_CORE_WARN("Shader creation took {0} ms", timer.ElapseMillis());
 		}
@@ -121,9 +120,8 @@ namespace Kuro
 		std::unordered_map<GLenum, std::string> sources;
 		sources[GL_VERTEX_SHADER] = vertexSrc;
 		sources[GL_FRAGMENT_SHADER] = fragmentSrc;
-
-		CompileOrGetVulkanBinaries(sources);
-		CompileOrGetOnpenGLBinaries();
+		
+		CompileOpenGLShader(sources);
 		CreateProgram();
 	}
 
@@ -300,151 +298,39 @@ namespace Kuro
 		return shaderSources;
 	}
 
-	void OpenGLShader::CompileOrGetVulkanBinaries(const std::unordered_map<GLenum, std::string>& shaderSources)
+	void OpenGLShader::CompileOpenGLShader(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
-		KURO_CORE_INFO("OpenGLShader::CompileOrGetVulkanBinaries");
-
+		KURO_CORE_INFO("OpenGLShader::CompileOrGetOnpenGLBinaries");		
 		GLuint program = glCreateProgram();
 
-		shaderc::Compiler compiler;
-		shaderc::CompileOptions options;
-		options.SetTargetEnvironment(shaderc_target_env_vulkan, shaderc_env_version_vulkan_1_3);
-		const bool optimize = true;
-		if (optimize)
-			options.SetOptimizationLevel(shaderc_optimization_level_performance);
-
-		std::filesystem::path cacheDirectory = Utils::GetCacheDirectory();
-
-		auto& shaderData = m_VulkanSPIRV;
+		auto& shaderData = m_OpenGLShader;
 		shaderData.clear();
 		for (auto&& [stage, source] : shaderSources)
 		{
-			KURO_CORE_INFO("stage : {0}", stage);
-			KURO_CORE_INFO("source : {0}", source);
+			KURO_CORE_TRACE(stage);
+			KURO_CORE_TRACE(source);
 
-			std::filesystem::path shaderFilePath = m_FilePath;
-			std::filesystem::path cachedPath = cacheDirectory / (shaderFilePath.filename().string() + Utils::GLShaderStageCachedVulkanFileExtension(stage));
+			const GLuint shader = glCreateShader(stage);
+			const char* shaderSource = source.c_str();
+			glShaderSource(shader, 1, &shaderSource, nullptr);
+			glCompileShader(shader);
 
-			std::ifstream in(cachedPath, std::ios::in | std::ios::binary);			
-			if (in.is_open())
+			GLint isCompiled;
+			glGetShaderiv(shader, GL_COMPILE_STATUS, &isCompiled);
+			if (isCompiled == GL_FALSE)
 			{
-				KURO_CORE_INFO("Read Cached File");
+				GLint maxLength;
+				glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
 
-				in.seekg(0, std::ios::end);
-				auto size = in.tellg();
-				in.seekg(0, std::ios::beg);
+				std::vector<GLchar> infoLog(maxLength);
+				glGetShaderInfoLog(shader, maxLength, &maxLength, infoLog.data());
+				KURO_CORE_ERROR(infoLog.data());
+				KURO_CORE_ASSERT(false);
 
-				auto& data = shaderData[stage];
-				data.resize(size / sizeof(uint32_t));
-				in.read((char*)data.data(), size);
+				glDeleteShader(shader);
 			}
-			else
-			{
-				shaderc::SpvCompilationResult module = compiler.CompileGlslToSpv(source, Utils::GLShaderStageToShaderC(stage), m_FilePath.c_str(), options);
-				if (module.GetCompilationStatus() != shaderc_compilation_status_success)
-				{
-					KURO_CORE_ERROR(module.GetErrorMessage());
-					KURO_CORE_ERROR(false);
-				}
 
-				shaderData[stage] = std::vector<uint32_t>(module.cbegin(), module.cend());
-
-				std::ofstream out(cachedPath, std::ios::out | std::ios::binary);
-				if (out.is_open())
-				{
-					KURO_CORE_INFO("Write Cached File");
-
-					auto& data = shaderData[stage];
-					out.write((char*)data.data(), data.size() * sizeof(uint32_t));
-					out.flush();
-					out.close();					
-				}
-			}
-		}
-
-		//for (auto&& [stage, data] : shaderData)
-		//	Reflect(stage, data);
-	}
-
-	void OpenGLShader::CompileOrGetOnpenGLBinaries()
-	{
-		KURO_CORE_INFO("OpenGLShader::CompileOrGetOnpenGLBinaries");
-
-		auto& shaderData = m_OpenGLSPIRV;
-
-		shaderc::Compiler compiler;
-		shaderc::CompileOptions options;
-		options.SetTargetEnvironment(shaderc_target_env_opengl, shaderc_env_version_opengl_4_5);
-		const bool optimize = false;
-		if (optimize)
-			options.SetOptimizationLevel(shaderc_optimization_level_performance);
-
-		std::filesystem::path cacheDirectory = Utils::GetCacheDirectory();
-
-		shaderData.clear();
-		m_OpenGLSourceCode.clear();
-		for (auto&& [stage, spirv] : m_VulkanSPIRV)
-		{
-			KURO_CORE_INFO("stage : {0}", stage);
-			KURO_CORE_INFO("source : {0}", spirv.empty());
-
-			std::filesystem::path shaderFilePath = m_FilePath;
-			std::filesystem::path cachedPath = cacheDirectory / (shaderFilePath.filename().string() + Utils::GLShaderStageCachedOpenGLFileExtension(stage));
-
-			std::ifstream in(cachedPath, std::ios::in | std::ios::binary);
-			if (in.is_open())
-			{
-				KURO_CORE_INFO("Run Cached File");
-
-				in.seekg(0, std::ios::end);
-				auto size = in.tellg();
-				in.seekg(0, std::ios::beg);
-
-				auto& data = shaderData[stage];
-				data.resize(size / sizeof(uint32_t));
-				in.read((char*)data.data(), size);
-			}
-			else
-			{
-				spirv_cross::CompilerGLSL glslCompiler(spirv);
-				m_OpenGLSourceCode[stage] = glslCompiler.compile();
-				auto& source = m_OpenGLSourceCode[stage];
-
-				shaderc::SpvCompilationResult module = compiler.CompileGlslToSpv(source, Utils::GLShaderStageToShaderC(stage), m_FilePath.c_str());
-				if (module.GetCompilationStatus() != shaderc_compilation_status_success)
-				{
-					KURO_CORE_ERROR(module.GetErrorMessage());
-					KURO_CORE_ASSERT(false);
-				}
-
-				shaderData[stage] = std::vector<uint32_t>(module.cbegin(), module.cend());
-
-				std::ofstream out(cachedPath, std::ios::out | std::ios::binary);
-				if (out.is_open())
-				{
-					KURO_CORE_INFO("Write Cached File");
-
-					auto& data = shaderData[stage];
-					out.write((char*)data.data(), data.size() * sizeof(uint32_t));
-					out.flush();
-					out.close();					
-				}
-			}
-		}
-	}
-
-	void OpenGLShader::CreateProgram()
-	{
-		KURO_CORE_INFO("OpenGLShader::CreateProgram");
-		GLuint program = glCreateProgram();
-
-		std::vector<GLuint> shaderIDs;
-		for (auto&& [stage, spirv] : m_OpenGLSPIRV)
-		{
-			GLuint shaderID = shaderIDs.emplace_back(glCreateShader(stage));			
-			glShaderBinary(1, &shaderID, GL_SHADER_BINARY_FORMAT_SPIR_V, spirv.data(), spirv.size() * sizeof(uint32_t));
-			glSpecializeShader(shaderID, "main", 0, nullptr, nullptr);
-			glAttachShader(program, shaderID);
+			glAttachShader(program, shader);
 		}
 
 		glLinkProgram(program);
@@ -452,7 +338,7 @@ namespace Kuro
 		GLint isLinked;
 		glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
 		if (isLinked == GL_FALSE)
-		{			
+		{
 			GLint maxLength;
 			glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
 
@@ -461,27 +347,13 @@ namespace Kuro
 			KURO_CORE_ERROR("Shader linking failed ({0}):\n{1}", m_FilePath, infoLog.data());
 
 			glDeleteProgram(program);
-
-			for (auto id : shaderIDs)
-				glDeleteShader(id);
-		}		
-
-		for (auto id : shaderIDs)
-		{
-			glDetachShader(program, id);
-			glDeleteShader(id);
 		}
 
 		m_RendererID = program;
 	}
 
-	void OpenGLShader::Reflect(GLenum stage, const std::vector<uint32_t>& shaderData)
+	void OpenGLShader::CreateProgram()
 	{
-		KURO_CORE_INFO("OpenGLShader::Reflect");
-		KURO_CORE_INFO("stage : {0}", stage);
-		KURO_CORE_INFO("source : {0}", shaderData.empty());
-
-		spirv_cross::Compiler comp(shaderData);
-		spirv_cross::ShaderResources resources = comp.get_shader_resources();
+		KURO_CORE_INFO("OpenGLShader::CreateProgram");
 	}
 }

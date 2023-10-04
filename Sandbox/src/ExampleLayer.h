@@ -19,5 +19,5 @@ private:
 	Kuro::ShaderLibrary m_ShaderLibrary;	
 
 	Kuro::OrthographicCameraController m_CameraController;
-	glm::vec3 m_SquareColor = { 1.0f, 1.0f, 1.0f };
+	glm::vec4 m_Color = { 1.0f, 1.0f, 1.0f, 1.0f };
 };

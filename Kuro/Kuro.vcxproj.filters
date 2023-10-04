@@ -81,6 +81,9 @@
     <ClInclude Include="src\Kuro\Core\PlatformDetection.h">
       <Filter>src\Kuro\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kuro\Core\Timer.h">
+      <Filter>src\Kuro\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Kuro\Core\Timestep.h">
       <Filter>src\Kuro\Core</Filter>
     </ClInclude>
@@ -103,6 +106,12 @@
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\GraphicsContext.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\OrthographicCamera.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\OrthographicCameraController.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\RenderCommand.h">
@@ -1392,9 +1401,10 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kuro\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\Kuro\Renderer\OrthographicCameraController.h" />
-    <ClInclude Include="src\Kuro\Core\Timer.h" />
+    <ClInclude Include="src\Kuro\Renderer\UniformBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h" />
+    <ClInclude Include="src\Kuro\Renderer\Texture.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kuro\Core\Application.cpp">
@@ -1416,6 +1426,12 @@
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\GraphicsContext.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\OrthographicCamera.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\OrthographicCameraController.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\RenderCommand.cpp">
@@ -1457,7 +1473,9 @@
     <ClCompile Include="src\engineph.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Kuro\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Kuro\Renderer\OrthographicCameraController.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\UniformBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\Texture.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp" />
   </ItemGroup>
 </Project>

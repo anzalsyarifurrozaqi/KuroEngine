@@ -30,18 +30,15 @@ project "Kuro"
 		"vendor/spdlog/include",		
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.Glad}",
-		-- "%{IncludeDir.SPIRV-Cross}",
+		"%{IncludeDir.Glad}",		
 		"%{IncludeDir.VulkanSDK}"
     }
 
 	links
 	{
 		"GLFW",
-		"Glad",
-		"SPIRV-Cross",
-		"opengl32.lib",
-		"%{Library.ShaderC}"
+		"Glad",		
+		"opengl32.lib"		
 	}
 
 	filter "system:windows"

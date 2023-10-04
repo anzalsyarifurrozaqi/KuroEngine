@@ -66,10 +66,19 @@ namespace Kuro
 			glfwSetErrorCallback(GLFWErrorCallback);			
 		}
 
+		if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+		{
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);			
+		}
+
 		{
 #if defined(KURO_DEBUG)
 			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+			{				
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
+			}
 #endif			
 			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 			++s_GLFWWindowCount;
@@ -155,7 +164,7 @@ namespace Kuro
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			MouseScrollEvent event((float)xOffset, (float)yOffset);
+			MouseScrolledEvent event((float)xOffset, (float)yOffset);
 			data.EventCallback(event);
 			});
 
