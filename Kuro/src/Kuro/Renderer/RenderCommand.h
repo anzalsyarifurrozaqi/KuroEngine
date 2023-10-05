@@ -42,6 +42,11 @@ namespace Kuro
 			s_RendererAPI->SetLineWidth(width);
 		}
 
+		static void SetPolygonMode(PolygonMode polygonMode)
+		{
+			s_RendererAPI->SetPolygonMode(polygonMode);
+		}
+
 		static Scope<RendererAPI> s_RendererAPI;
 	};
 }

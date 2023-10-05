@@ -20,4 +20,6 @@ private:
 
 	Kuro::OrthographicCameraController m_CameraController;
 	glm::vec4 m_Color = { 1.0f, 1.0f, 1.0f, 1.0f };
+
+	float seconds = 0.0f;
 };

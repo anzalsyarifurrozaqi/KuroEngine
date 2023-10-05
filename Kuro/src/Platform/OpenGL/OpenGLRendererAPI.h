@@ -17,5 +17,7 @@ namespace Kuro
 		void DrawLines(const Ref<VertexArray>& vertexArray, uint32_t vertexCount) override;
 
 		void SetLineWidth(float width) override;
+
+		void SetPolygonMode(PolygonMode polygonMode) override;
 	};
 }

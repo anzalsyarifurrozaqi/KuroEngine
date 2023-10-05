@@ -4,6 +4,22 @@
 #include <glad/glad.h>
 namespace Kuro
 {
+	namespace Utils
+	{
+		static GLenum GetPolygonMode(PolygonMode polygonMode)
+		{
+			switch (polygonMode)
+			{
+			case PolygonMode::LINE:		return GL_LINE;
+			case PolygonMode::FILL:		return GL_FILL;
+			}
+
+
+			KURO_CORE_ASSERT(false, "Unknown PolygonMode!");
+			return 0;
+		}
+	}
+
 	void OpenGLMessageCallback(
 		unsigned source,
 		unsigned type,
@@ -41,6 +57,8 @@ namespace Kuro
 
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_LINE_SMOOTH);
+		glEnable(GL_POLYGON_OFFSET_LINE);
+		glPolygonOffset(-1.0f, -1.0f);
 	}
 
 	void OpenGLRendererAPI::SetViewport(uint32_t x, uint32_t y, uint32_t width, uint32_t height)
@@ -65,7 +83,8 @@ namespace Kuro
 	{
 		//KURO_CORE_INFO("OpenGLRendererAPI::DrawIndexed");
 		vertexArray->Bind();
-		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
+		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();				
+		
 		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 	}
 
@@ -80,5 +99,9 @@ namespace Kuro
 	{
 		KURO_CORE_INFO("OpenGLRendererAPI::SetLineWidth");
 		glLineWidth(width);
+	}
+	void OpenGLRendererAPI::SetPolygonMode(PolygonMode polygonMode)
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, Utils::GetPolygonMode(polygonMode));
 	}
 }

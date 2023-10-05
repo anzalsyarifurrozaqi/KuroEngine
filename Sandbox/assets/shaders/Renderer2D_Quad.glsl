@@ -1,7 +1,7 @@
 // Basic Texture Shader
 
 #type vertex
-#version 450 core
+#version 460 core
 
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
@@ -26,13 +26,6 @@ layout (location = 0) out VertexOutput Output;
 layout (location = 3) out flat float v_TexIndex;
 layout (location = 4) out flat int v_EntityID;
 
-//const vec4 pos[4] = vec4[4](
-//	vec4 (-0.5f, -0.5f, 0.0f, 1.0f),
-//	vec4 ( 0.5f, -0.5f, 0.0f, 1.0f),
-//	vec4 ( 0.5f,  0.5f, 0.0f, 1.0f),
-//	vec4 (-0.5f,  0.5f, 0.0f, 1.0f)
-//);
-
 void main()
 {
 	Output.Color = a_Color;
@@ -41,13 +34,13 @@ void main()
 	v_TexIndex = a_TexIndex;
 	v_EntityID = a_EntityID;
 
-	gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
+	gl_Position = vec4(a_Position, 1.0);
 
-	//gl_Position = u_ViewProjection * pos[gl_VertexID];
+	//gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 }
 
 #type fragment
-#version 450 core
+#version 460 core
 
 layout(location = 0) out vec4 o_Color;
 layout(location = 1) out int o_EntityID;

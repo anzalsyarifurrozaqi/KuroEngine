@@ -66,13 +66,6 @@ namespace Kuro
 			glfwSetErrorCallback(GLFWErrorCallback);			
 		}
 
-		if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
-		{
-			glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-			glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
-			glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);			
-		}
-
 		{
 #if defined(KURO_DEBUG)
 			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
@@ -80,14 +73,21 @@ namespace Kuro
 				glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GLFW_TRUE);
 			}
 #endif			
+
+			if (Renderer::GetAPI() == RendererAPI::API::OpenGL)
+			{
+				glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+				glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+				glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+			}
+
 			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 			++s_GLFWWindowCount;
 		}
 		
 		m_Context = GraphicsContext::Create(m_Window);
 		m_Context->Init();
-
-		//glfwMakeContextCurrent(m_Window);
+		
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
