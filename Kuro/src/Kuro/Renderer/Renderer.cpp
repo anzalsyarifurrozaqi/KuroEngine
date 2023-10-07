@@ -23,6 +23,7 @@ namespace Kuro
 		// Editor-only
 		int EntityID;
 	};
+
 	struct RendererData
 	{
 		static const uint32_t MaxQuads = 20000;
@@ -121,18 +122,18 @@ namespace Kuro
 			offset += 4;			
 		}
 
-		//for (uint32_t i = 0; i < 54; i += 6)
-		//{
-		//	KURO_CORE_TRACE(
-		//		"{0}, {1}, {2}, {3}, {4}, {5}", 
-		//		quadIndices[i + 0], 
-		//		quadIndices[i + 1], 
-		//		quadIndices[i + 2], 
-		//		quadIndices[i + 3], 
-		//		quadIndices[i + 4], 
-		//		quadIndices[i + 5]
-		//	);
-		//} 
+		for (uint32_t i = 0; i < 54; i += 6)
+		{
+			KURO_CORE_TRACE(
+				"{0}, {1}, {2}, {3}, {4}, {5}", 
+				quadIndices[i + 0], 
+				quadIndices[i + 1], 
+				quadIndices[i + 2], 
+				quadIndices[i + 3], 
+				quadIndices[i + 4], 
+				quadIndices[i + 5]
+			);
+		} 
 
 		Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.MaxIndices);
 		s_Data.QuadVertexArray->SetIndexBuffer(quadIB);
@@ -163,18 +164,12 @@ namespace Kuro
 
 		uint32_t boxIndices[] =
 		{
-			// front
-			0, 1, 2, 2, 3, 0,
-			// right
-			1, 5, 6, 6, 2, 1,
-			// back
-			7, 6, 5, 5, 4, 7,
-			// left
-			4, 0, 3, 3, 7, 4,
-			// bottom
-			4, 5, 1, 1, 0, 4,
-			// top
-			3, 2, 6, 6, 7, 3
+			0, 1, 2,  0, 2, 3, // bottom
+			4, 5, 6,  4, 6, 7, // top
+			0, 1, 5,  0, 5, 4, // left
+			3, 2, 6,  3, 6, 7, // right
+			1, 5, 6,  1, 6, 2, // front        
+			0, 4, 7,  0, 7, 3, // back
 		};
 
 		Ref<IndexBuffer> boxIB = IndexBuffer::Create(boxIndices, sizeof(boxIndices));

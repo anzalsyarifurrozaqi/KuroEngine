@@ -1,16 +1,25 @@
-[16:11:09] [info] KURO: Creating Window Kuro Engine (1280, 720)
-[16:11:09] [info] KURO: OpenGL Info:
-[16:11:09] [info] KURO:   Vendor: NVIDIA Corporation
-[16:11:09] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
-[16:11:09] [info] KURO:   Version: 4.6.0 NVIDIA 537.42
-[16:11:09] [info] KURO: Renderer::Init
-[16:11:09] [info] KURO: OpenGLRendererAPI::Init
-[16:11:09] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Renderer2D_Quad.glsl
-[16:11:09] [info] KURO: OpenGLShader::ReadFile
-[16:11:09] [info] KURO: OpenGLShader::PreProcess
-[16:11:09] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
-[16:11:09] [trace] KURO: 35633
-[16:11:09] [trace] KURO: #version 460 core
+[11:52:39] [info] KURO: Creating Window Kuro Engine (1280, 720)
+[11:52:40] [info] KURO: OpenGL Info:
+[11:52:40] [info] KURO:   Vendor: NVIDIA Corporation
+[11:52:40] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
+[11:52:40] [info] KURO:   Version: 4.6.0 NVIDIA 537.42
+[11:52:40] [info] KURO: Renderer::Init
+[11:52:40] [info] KURO: OpenGLRendererAPI::Init
+[11:52:40] [trace] KURO: 0, 1, 2, 2, 3, 0
+[11:52:40] [trace] KURO: 4, 5, 6, 6, 7, 4
+[11:52:40] [trace] KURO: 8, 9, 10, 10, 11, 8
+[11:52:40] [trace] KURO: 12, 13, 14, 14, 15, 12
+[11:52:40] [trace] KURO: 16, 17, 18, 18, 19, 16
+[11:52:40] [trace] KURO: 20, 21, 22, 22, 23, 20
+[11:52:40] [trace] KURO: 24, 25, 26, 26, 27, 24
+[11:52:40] [trace] KURO: 28, 29, 30, 30, 31, 28
+[11:52:40] [trace] KURO: 32, 33, 34, 34, 35, 32
+[11:52:40] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Renderer2D_Quad.glsl
+[11:52:40] [info] KURO: OpenGLShader::ReadFile
+[11:52:40] [info] KURO: OpenGLShader::PreProcess
+[11:52:40] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[11:52:40] [trace] KURO: 35633
+[11:52:40] [trace] KURO: #version 460 core
 
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
@@ -49,8 +58,8 @@ void main()
 }
 
 
-[16:11:09] [trace] KURO: 35632
-[16:11:09] [trace] KURO: #version 460 core
+[11:52:40] [trace] KURO: 35632
+[11:52:40] [trace] KURO: #version 460 core
 
 layout(location = 0) out vec4 o_Color;
 layout(location = 1) out int o_EntityID;
@@ -115,15 +124,15 @@ void main()
 	o_EntityID = v_EntityID;
 }
 
-[16:11:09] [info] KURO: OpenGLShader::CreateProgram
-[16:11:09] [warning] KURO: Shader creation took 2.4634006 ms
-[16:11:09] [info] KURO: OpenGLShader::OpenGLShader name : Renderer2D_Quad
-[16:11:09] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Box.glsl
-[16:11:09] [info] KURO: OpenGLShader::ReadFile
-[16:11:09] [info] KURO: OpenGLShader::PreProcess
-[16:11:09] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
-[16:11:09] [trace] KURO: 35633
-[16:11:09] [trace] KURO: #version 460 core
+[11:52:40] [info] KURO: OpenGLShader::CreateProgram
+[11:52:40] [warning] KURO: Shader creation took 10.695302 ms
+[11:52:40] [info] KURO: OpenGLShader::OpenGLShader name : Renderer2D_Quad
+[11:52:40] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Box.glsl
+[11:52:40] [info] KURO: OpenGLShader::ReadFile
+[11:52:40] [info] KURO: OpenGLShader::PreProcess
+[11:52:40] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[11:52:40] [trace] KURO: 35633
+[11:52:40] [trace] KURO: #version 460 core
 
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
@@ -146,8 +155,8 @@ void main()
 }
 
 
-[16:11:09] [trace] KURO: 35632
-[16:11:09] [trace] KURO: #version 460 core
+[11:52:40] [trace] KURO: 35632
+[11:52:40] [trace] KURO: #version 460 core
 
 layout(location = 0) out vec4 o_Color;
 layout(location = 1) out int o_EntityID;
@@ -168,6 +177,6 @@ void main()
 	o_EntityID = v_EntityID;
 }
 
-[16:11:09] [info] KURO: OpenGLShader::CreateProgram
-[16:11:09] [warning] KURO: Shader creation took 1.5316001 ms
-[16:11:09] [info] KURO: OpenGLShader::OpenGLShader name : Box
+[11:52:40] [info] KURO: OpenGLShader::CreateProgram
+[11:52:40] [warning] KURO: Shader creation took 8.446 ms
+[11:52:40] [info] KURO: OpenGLShader::OpenGLShader name : Box

@@ -53,8 +53,8 @@ void ExampleLayer::OnUpdate(Kuro::Timestep ts)
 	Kuro::Renderer::DrawRotateQuad({ 0.0f, -0.5f }, { 0.5f, 0.5f }, seconds, m_Color);
 
 	// EROR : Only Draw 1 box, maybe wrong when set indices
-	//Kuro::Renderer::DrawBox({ 0.6f, 0.0f }, { 0.5f, 0.5f }, m_Color);
-	Kuro::Renderer::DrawRotateBox({ 0.5f, 0.0f }, { 0.5f, 0.5f, 0.5f }, seconds, m_Color);
+	//Kuro::Renderer::DrawBox({ 0.6f, 0.0f }, glm::vec3(0.5f), m_Color);
+	Kuro::Renderer::DrawRotateBox({ 0.5f, 0.0f }, glm::vec3(0.5f), seconds, m_Color);
 
 	//Triangle
 	//m_FlatColorShader->Bind();
