@@ -1,5 +1,6 @@
 #include "engineph.h"
 #include "Renderer.h"
+#include "Model.h"
 
 namespace Kuro
 {
@@ -15,7 +16,7 @@ namespace Kuro
 		int EntityID;
 	};
 
-	struct BoxVertex
+	struct Instance
 	{
 		glm::vec3 Position;
 		glm::vec4 Color;
@@ -50,17 +51,17 @@ namespace Kuro
 		glm::vec4 QuadVertexPositions[4];
 
 		////////////////////////
-		// BOX ////////////////
+		// MODEL-DEFAULT CUBE /
 		//////////////////////
-		Ref<VertexArray> BoxVertexArray;
-		Ref<VertexBuffer> BoxVertexBuffer;
-		Ref<Shader> BoxShader;		
+		Ref<VertexArray> CubeVertexArray;
+		Ref<VertexBuffer> CubeVertexBuffer;
+		Ref<Shader> CubeShader;
 
-		uint32_t BoxIndexCount = 0;
-		BoxVertex* BoxVertexBufferBase = nullptr;
-		BoxVertex* BoxVertexBufferPtr = nullptr;
+		uint32_t CubeIndexCount = 0;
+		Instance* CubeVertexBufferBase = nullptr;
+		Instance* CubeVertexBufferPtr = nullptr;
 
-		glm::vec4 BoxVertexPosition[8];
+		glm::vec4 CubeVertexPosition[8];
 
 		////////////////////////
 		// TEXTURE ////////////
@@ -122,18 +123,18 @@ namespace Kuro
 			offset += 4;			
 		}
 
-		for (uint32_t i = 0; i < 54; i += 6)
-		{
-			KURO_CORE_TRACE(
-				"{0}, {1}, {2}, {3}, {4}, {5}", 
-				quadIndices[i + 0], 
-				quadIndices[i + 1], 
-				quadIndices[i + 2], 
-				quadIndices[i + 3], 
-				quadIndices[i + 4], 
-				quadIndices[i + 5]
-			);
-		} 
+		//for (uint32_t i = 0; i < 54; i += 6)
+		//{
+		//	KURO_CORE_TRACE(
+		//		"{0}, {1}, {2}, {3}, {4}, {5}", 
+		//		quadIndices[i + 0], 
+		//		quadIndices[i + 1], 
+		//		quadIndices[i + 2], 
+		//		quadIndices[i + 3], 
+		//		quadIndices[i + 4], 
+		//		quadIndices[i + 5]
+		//	);
+		//} 
 
 		Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.MaxIndices);
 		s_Data.QuadVertexArray->SetIndexBuffer(quadIB);
@@ -146,21 +147,23 @@ namespace Kuro
 		s_Data.QuadVertexPositions[3] = { -0.5f,  0.5f,	0.0f, 1.0f };
 
 		////////////////////////
-		// BOX ////////////////
+		// MODEL-DEFAULT CUVE /
 		//////////////////////
-		s_Data.BoxVertexArray = VertexArray::Create();
+		s_Data.CubeVertexArray = VertexArray::Create();
 
-		s_Data.BoxVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(BoxVertex));
-		s_Data.BoxVertexBuffer->SetLayout({
+		// Model
+		Model* model = new Model("assets/objects/Cube_2x2x2m.glb");
+
+		s_Data.CubeVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(Instance));
+		s_Data.CubeVertexBuffer->SetLayout({
 			{ ShaderDataType::Float3,	"a_Position"	},
 			{ ShaderDataType::Float4,	"a_Color"		},
 			{ ShaderDataType::Int,		"a_EntityID"	}
 		});
-		s_Data.BoxVertexArray->AddVertexBuffer(s_Data.BoxVertexBuffer);
+		s_Data.CubeVertexArray->AddVertexBuffer(s_Data.CubeVertexBuffer);
 
-		s_Data.BoxVertexBufferBase = new BoxVertex[s_Data.MaxVertices];
+		s_Data.CubeVertexBufferBase = new Instance[s_Data.MaxVertices];
 
-		// TODO : Setup indices untuk box
 
 		uint32_t boxIndices[] =
 		{
@@ -173,19 +176,19 @@ namespace Kuro
 		};
 
 		Ref<IndexBuffer> boxIB = IndexBuffer::Create(boxIndices, sizeof(boxIndices));
-		s_Data.BoxVertexArray->SetIndexBuffer(boxIB);
+		s_Data.CubeVertexArray->SetIndexBuffer(boxIB);
 		//delete[] boxIB; // EROR
 
 		// Set Box Vertex Position
-		s_Data.BoxVertexPosition[0] = { -0.5f,  -0.5f,  0.5f, 1.0f };
-		s_Data.BoxVertexPosition[1] = {  0.5f,  -0.5f,  0.5f, 1.0f };
-		s_Data.BoxVertexPosition[2] = {  0.5f,   0.5f,  0.5f, 1.0f };
-		s_Data.BoxVertexPosition[3] = { -0.5f,   0.5f,  0.5f, 1.0f };
-
-		s_Data.BoxVertexPosition[4] = { -0.5f,  -0.5f, -0.5f, 1.0f };
-		s_Data.BoxVertexPosition[5] = {  0.5f,  -0.5f, -0.5f, 1.0f };
-		s_Data.BoxVertexPosition[6] = {  0.5f,   0.5f, -0.5f, 1.0f };
-		s_Data.BoxVertexPosition[7] = { -0.5f,   0.5f, -0.5f, 1.0f };
+		s_Data.CubeVertexPosition[0] = { -0.5f,  -0.5f,  0.5f, 1.0f };
+		s_Data.CubeVertexPosition[1] = {  0.5f,  -0.5f,  0.5f, 1.0f };
+		s_Data.CubeVertexPosition[2] = {  0.5f,   0.5f,  0.5f, 1.0f };
+		s_Data.CubeVertexPosition[3] = { -0.5f,   0.5f,  0.5f, 1.0f };
+			   
+		s_Data.CubeVertexPosition[4] = { -0.5f,  -0.5f, -0.5f, 1.0f };
+		s_Data.CubeVertexPosition[5] = {  0.5f,  -0.5f, -0.5f, 1.0f };
+		s_Data.CubeVertexPosition[6] = {  0.5f,   0.5f, -0.5f, 1.0f };
+		s_Data.CubeVertexPosition[7] = { -0.5f,   0.5f, -0.5f, 1.0f };
 
 		// Texture
 		s_Data.WhiteTexture = Texture2D::Create(TextureSpecification());
@@ -201,7 +204,7 @@ namespace Kuro
 
 		// Shader
 		s_Data.QuadShader = Shader::Create("assets/shaders/Renderer2D_Quad.glsl");
-		s_Data.BoxShader = Shader::Create("assets/shaders/Box.glsl");
+		s_Data.CubeShader = Shader::Create("assets/shaders/Box.glsl");
 		//s_Data.QuadShader = Shader::Create("assets/shaders/TestShader.glsl");
 
 		// Camera buffer
@@ -214,7 +217,7 @@ namespace Kuro
 
 		delete[] s_Data.QuadVertexBufferBase;
 
-		delete[] s_Data.BoxVertexBufferBase;
+		delete[] s_Data.CubeVertexBufferBase;
 	}
 
 	void Renderer::OnWindowResize(uint32_t width, uint32_t height)
@@ -254,16 +257,16 @@ namespace Kuro
 		}
 
 		////////////////////////
-		// BOX ////////////////
+		// MODEL //////////////
 		//////////////////////
-		if (s_Data.BoxIndexCount)
+		if (s_Data.CubeIndexCount)
 		{
-			uint32_t dataSize = (uint32_t)((uint8_t*)s_Data.BoxVertexBufferPtr - (uint8_t*)s_Data.BoxVertexBufferBase);
-			s_Data.BoxVertexBuffer->SetData(s_Data.BoxVertexBufferBase, dataSize);
+			uint32_t dataSize = (uint32_t)((uint8_t*)s_Data.CubeVertexBufferPtr - (uint8_t*)s_Data.CubeVertexBufferBase);
+			s_Data.CubeVertexBuffer->SetData(s_Data.CubeVertexBufferBase, dataSize);
 
-			s_Data.BoxShader->Bind();
+			s_Data.CubeShader->Bind();
 			RenderCommand::SetPolygonMode(PolygonMode::LINE); // INFO : Temporary to draw wireframe
-			RenderCommand::DrawIndexed(s_Data.BoxVertexArray, s_Data.BoxIndexCount);
+			RenderCommand::DrawIndexed(s_Data.CubeVertexArray, s_Data.CubeIndexCount);
 		}
 	}
 
@@ -349,18 +352,18 @@ namespace Kuro
 	{
 		constexpr size_t boxVertexCount = 8;
 
-		if (s_Data.BoxIndexCount >= RendererData::MaxIndices)
+		if (s_Data.CubeIndexCount >= RendererData::MaxIndices)
 			NextBatch();
 
 		for (size_t i = 0; i < boxVertexCount; i++)
 		{
-			s_Data.BoxVertexBufferPtr->Position = transform * s_Data.BoxVertexPosition[i];
-			s_Data.BoxVertexBufferPtr->Color = color;
-			s_Data.BoxVertexBufferPtr->EntityID = entiryID;
-			s_Data.BoxVertexBufferPtr++;
+			s_Data.CubeVertexBufferPtr->Position = transform * s_Data.CubeVertexPosition[i];
+			s_Data.CubeVertexBufferPtr->Color = color;
+			s_Data.CubeVertexBufferPtr->EntityID = entiryID;
+			s_Data.CubeVertexBufferPtr++;
 		}
 
-		s_Data.BoxIndexCount += 36;		
+		s_Data.CubeIndexCount += 36;
 	}
 
 	void Renderer::Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& transform)
@@ -380,8 +383,8 @@ namespace Kuro
 		s_Data.QuadIndexCount = 0;
 		s_Data.QuadVertexBufferPtr = s_Data.QuadVertexBufferBase;		
 
-		s_Data.BoxIndexCount = 0;
-		s_Data.BoxVertexBufferPtr = s_Data.BoxVertexBufferBase;
+		s_Data.CubeIndexCount = 0;
+		s_Data.CubeVertexBufferPtr = s_Data.CubeVertexBufferBase;
 	}
 	
 	void Renderer::NextBatch()

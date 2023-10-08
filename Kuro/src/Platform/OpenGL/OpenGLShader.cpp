@@ -6,11 +6,11 @@
 
 #include <glm/gtc/type_ptr.hpp>
 
-#include <shaderc/shaderc.hpp>
+//#include <shaderc/shaderc.hpp>
 #include <fstream>
 #include <filesystem>
-#include "spirv_cross/spirv_cross.hpp"
-#include "spirv_cross/spirv_glsl.hpp"
+//#include "spirv_cross/spirv_cross.hpp"
+//#include "spirv_cross/spirv_glsl.hpp"
 
 namespace Kuro
 {
@@ -27,16 +27,16 @@ namespace Kuro
 			return 0;
 		}
 
-		static shaderc_shader_kind GLShaderStageToShaderC(GLenum stage)
-		{
-			switch (stage)
-			{
-			case GL_VERTEX_SHADER:   return shaderc_glsl_vertex_shader;
-			case GL_FRAGMENT_SHADER: return shaderc_glsl_fragment_shader;
-			}
-			KURO_CORE_ASSERT(false);
-			return (shaderc_shader_kind)0;
-		}
+		//static shaderc_shader_kind GLShaderStageToShaderC(GLenum stage)
+		//{
+		//	switch (stage)
+		//	{
+		//	case GL_VERTEX_SHADER:   return shaderc_glsl_vertex_shader;
+		//	case GL_FRAGMENT_SHADER: return shaderc_glsl_fragment_shader;
+		//	}
+		//	KURO_CORE_ASSERT(false);
+		//	return (shaderc_shader_kind)0;
+		//}
 
 		static const char* GLShaderStageToString(GLenum stage)
 		{

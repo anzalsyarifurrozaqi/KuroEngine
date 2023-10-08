@@ -10,3 +10,6 @@
 [submodule "Kuro/vendor/SPIRV-Cross"]
 	path = Kuro/vendor/SPIRV-Cross
 	url = https://github.com/KhronosGroup/SPIRV-Cross.git
+[submodule "Kuro/vendor/assimp"]
+	path = Kuro/vendor/assimp
+	url = https://github.com/assimp/assimp.git

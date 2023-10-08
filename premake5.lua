@@ -1,5 +1,5 @@
 include "./Vendor/premake/premake_custumization/solution_items.lua"
-include "Dependencies.lua"
+include "dependencies.lua"
 
 workspace "Kuro"
 	architecture "x86_64"
@@ -28,6 +28,8 @@ group "Dependencies"
 	include "vendor/premake"	
 	include "Kuro/vendor/GLFW"
 	include "Kuro/vendor/Glad"	
+	include "Kuro/vendor/assimp"
+
 group ""
 
 group "Core"

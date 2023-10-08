@@ -108,6 +108,12 @@
     <ClInclude Include="src\Kuro\Renderer\GraphicsContext.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\Mesh.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\Model.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\OrthographicCamera.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
@@ -126,6 +132,12 @@
     <ClInclude Include="src\Kuro\Renderer\Shader.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\Texture.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\UniformBuffer.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\VertexArray.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
@@ -142,6 +154,12 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1401,10 +1419,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kuro\Renderer\UniformBuffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h" />
-    <ClInclude Include="src\Kuro\Renderer\Texture.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kuro\Core\Application.cpp">
@@ -1428,6 +1442,12 @@
     <ClCompile Include="src\Kuro\Renderer\GraphicsContext.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\Mesh.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\Model.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\OrthographicCamera.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
@@ -1446,6 +1466,12 @@
     <ClCompile Include="src\Kuro\Renderer\Shader.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\Texture.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\UniformBuffer.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\VertexArray.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
@@ -1461,6 +1487,12 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1473,9 +1505,5 @@
     <ClCompile Include="src\engineph.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Kuro\Renderer\UniformBuffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
-    <ClCompile Include="src\Kuro\Renderer\Texture.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp" />
   </ItemGroup>
 </Project>

@@ -16,6 +16,9 @@
     <Filter Include="..\Kuro\vendor\Glad">
       <UniqueIdentifier>{D5467D8B-41A8-5A99-CA15-A14B36769158}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\Kuro\vendor\assimp">
+      <UniqueIdentifier>{8A1E199D-F68A-D497-BF7E-6CF52BAAF6FF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="..\Sandbox">
       <UniqueIdentifier>{3F7B6B1D-2B33-AD6A-943A-86C68011485B}</UniqueIdentifier>
     </Filter>
@@ -29,6 +32,9 @@
     </None>
     <None Include="..\..\Kuro\vendor\Glad\premake5.lua">
       <Filter>..\Kuro\vendor\Glad</Filter>
+    </None>
+    <None Include="..\..\Kuro\vendor\assimp\premake5.lua">
+      <Filter>..\Kuro\vendor\assimp</Filter>
     </None>
     <None Include="..\..\Sandbox\premake5.lua">
       <Filter>..\Sandbox</Filter>

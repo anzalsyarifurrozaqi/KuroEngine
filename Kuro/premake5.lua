@@ -27,18 +27,20 @@ project "Kuro"
 	includedirs
 	{
 		"src",
-		"vendor/spdlog/include",		
+		"vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.Glad}",		
-		"%{IncludeDir.VulkanSDK}"
-    }
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.assimp}",
+		-- "%{IncludeDir.VulkanSDK}"
+    }	
 
 	links
 	{
 		"GLFW",
 		"Glad",		
-		"opengl32.lib"		
+		"opengl32.lib",
+		"assimp"
 	}
 
 	filter "system:windows"
