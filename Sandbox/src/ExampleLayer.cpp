@@ -39,7 +39,7 @@ ExampleLayer::ExampleLayer()
 
 void ExampleLayer::OnUpdate(Kuro::Timestep ts)
 {	
-	seconds += ts * 10.0f;
+	seconds += ts * 1.0f;
 
 	// Update
 	m_CameraController.OnUpdate(ts);
@@ -49,12 +49,12 @@ void ExampleLayer::OnUpdate(Kuro::Timestep ts)
 	Kuro::RenderCommand::Clear();	
 
 	Kuro::Renderer::BeginScene(m_CameraController.GetCamera());
-	Kuro::Renderer::DrawQuad({ 0.0f, 0.5f }, { 0.5f, 0.5f }, m_Color);
-	Kuro::Renderer::DrawRotateQuad({ 0.0f, -0.5f }, { 0.5f, 0.5f }, seconds, m_Color);
+	//Kuro::Renderer::DrawQuad({ 0.0f, 0.5f }, { 0.5f, 0.5f }, m_Color);
+	//Kuro::Renderer::DrawRotateQuad({ 0.0f, -0.5f }, { 0.5f, 0.5f }, seconds, m_Color);
 
 	// EROR : Only Draw 1 box, maybe wrong when set indices
 	//Kuro::Renderer::DrawBox({ 0.6f, 0.0f }, glm::vec3(0.5f), m_Color);
-	Kuro::Renderer::DrawRotateBox({ 0.5f, 0.0f }, glm::vec3(0.5f), seconds, m_Color);
+	Kuro::Renderer::DrawRotateBox({ 0.0f, 0.0f }, glm::vec3(0.5f), seconds, m_Color);
 
 	//Triangle
 	//m_FlatColorShader->Bind();

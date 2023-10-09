@@ -7,7 +7,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "%{wks.location}/Kuro/vendor/GLFW/include"
 IncludeDir["glm"] = "%{wks.location}/Kuro/vendor/glm"
 IncludeDir["Glad"] = "%{wks.location}/Kuro/vendor/Glad/include"
-IncludeDir["assimp"] = "%{wks.location}/Kuro/vendor/assimp/include"
+IncludeDir["ASSIMP"] = "%{wks.location}/Kuro/vendor/ASSIMP/include"
 -- IncludeDir["assimp_contrib"] = "%{wks.location}/Kuro/vendor/assimp/contrib"
 -- IncludeDir["VulkanSDK"] = "%{VULKAN_SDK}/Include"
 

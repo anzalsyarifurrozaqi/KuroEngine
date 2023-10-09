@@ -31,7 +31,7 @@ project "Kuro"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.assimp}",
+		"%{IncludeDir.ASSIMP}",
 		-- "%{IncludeDir.VulkanSDK}"
     }	
 
@@ -39,8 +39,8 @@ project "Kuro"
 	{
 		"GLFW",
 		"Glad",		
+		"ASSIMP",
 		"opengl32.lib",
-		"assimp"
 	}
 
 	filter "system:windows"

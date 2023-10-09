@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Mesh.h"
+
 namespace Kuro
 {
 	enum class ShaderDataType
@@ -116,6 +118,7 @@ namespace Kuro
 
 		static Ref<VertexBuffer> Create(uint32_t size);
 		static Ref<VertexBuffer> Create(float* vertices, uint32_t size);
+		static Ref<VertexBuffer> Create(Vertex* vertices, uint32_t size);
 	};
 
 	// Currently Hazel only supports 32-bit index buffers
@@ -129,6 +132,6 @@ namespace Kuro
 
 		virtual uint32_t GetCount() const = 0;
 
-		static Ref<IndexBuffer> Create(uint32_t* indices, uint32_t count);
+		static Ref<IndexBuffer> Create(uint32_t* indices, uint32_t count);		
 	};
 }

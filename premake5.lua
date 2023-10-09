@@ -28,7 +28,7 @@ group "Dependencies"
 	include "vendor/premake"	
 	include "Kuro/vendor/GLFW"
 	include "Kuro/vendor/Glad"	
-	include "Kuro/vendor/assimp"
+	include "Kuro/vendor/ASSIMP"
 
 group ""
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Kuro/Renderer/Buffer.h"
+#include "Kuro/Renderer/Mesh.h"
 
 namespace Kuro
 {
@@ -9,6 +10,7 @@ namespace Kuro
 	public:
 		OpenGLVertexBuffer(uint32_t size);
 		OpenGLVertexBuffer(float* vertices, uint32_t size);
+		OpenGLVertexBuffer(Vertex* vertexData, uint32_t size);
 		virtual ~OpenGLVertexBuffer();
 		
 		void Bind() const override;

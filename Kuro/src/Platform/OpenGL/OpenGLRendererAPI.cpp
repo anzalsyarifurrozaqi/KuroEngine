@@ -83,8 +83,8 @@ namespace Kuro
 	{
 		//KURO_CORE_INFO("OpenGLRendererAPI::DrawIndexed");
 		vertexArray->Bind();
-		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();				
-		
+		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();		
+
 		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 	}
 

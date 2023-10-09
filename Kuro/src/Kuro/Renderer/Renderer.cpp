@@ -53,6 +53,9 @@ namespace Kuro
 		////////////////////////
 		// MODEL-DEFAULT CUBE /
 		//////////////////////
+		uint32_t MaxCubeVertices = 0;
+		uint32_t MaxCubeIndices = 0;
+
 		Ref<VertexArray> CubeVertexArray;
 		Ref<VertexBuffer> CubeVertexBuffer;
 		Ref<Shader> CubeShader;
@@ -61,7 +64,7 @@ namespace Kuro
 		Instance* CubeVertexBufferBase = nullptr;
 		Instance* CubeVertexBufferPtr = nullptr;
 
-		glm::vec4 CubeVertexPosition[8];
+		glm::vec4* CubeVertexPosition;
 
 		////////////////////////
 		// TEXTURE ////////////
@@ -140,21 +143,24 @@ namespace Kuro
 		s_Data.QuadVertexArray->SetIndexBuffer(quadIB);
 		delete[] quadIndices;
 
-		// Set Quad Vertex Position
-		s_Data.QuadVertexPositions[0] = { -0.5f, -0.5f,	0.0f, 1.0f };
-		s_Data.QuadVertexPositions[1] = { 0.5f, -0.5f,	0.0f, 1.0f };
-		s_Data.QuadVertexPositions[2] = { 0.5f,  0.5f,	0.0f, 1.0f };
-		s_Data.QuadVertexPositions[3] = { -0.5f,  0.5f,	0.0f, 1.0f };
-
 		////////////////////////
-		// MODEL-DEFAULT CUVE /
+		// MODEL-DEFAULT CUBE /
 		//////////////////////
 		s_Data.CubeVertexArray = VertexArray::Create();
 
 		// Model
-		Model* model = new Model("assets/objects/Cube_2x2x2m.glb");
+		Model* cubeModel = new Model("assets/objects/Cube_2x2x2m.glb");
+		
+		std::vector<Vertex> vertices = cubeModel->GetMesh()->GetVertices();
+		std::vector<uint32_t> indicies = cubeModel->GetMesh()->GetIndices();
 
-		s_Data.CubeVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(Instance));
+		s_Data.MaxCubeVertices = vertices.size();
+		s_Data.MaxCubeIndices = indicies.size();
+
+		KURO_CORE_TRACE(s_Data.MaxCubeVertices);
+		KURO_CORE_INFO(s_Data.MaxCubeIndices);
+
+		s_Data.CubeVertexBuffer = VertexBuffer::Create(&(vertices[0]), s_Data.MaxCubeVertices * sizeof(Vertex));
 		s_Data.CubeVertexBuffer->SetLayout({
 			{ ShaderDataType::Float3,	"a_Position"	},
 			{ ShaderDataType::Float4,	"a_Color"		},
@@ -162,33 +168,55 @@ namespace Kuro
 		});
 		s_Data.CubeVertexArray->AddVertexBuffer(s_Data.CubeVertexBuffer);
 
-		s_Data.CubeVertexBufferBase = new Instance[s_Data.MaxVertices];
+		s_Data.CubeVertexBufferBase = new Instance[s_Data.MaxCubeVertices];
 
+		//uint32_t boxIndices[] =
+		//{
+		//	0, 1, 2,  0, 2, 3, // bottom
+		//	4, 5, 6,  4, 6, 7, // top
+		//	0, 1, 5,  0, 5, 4, // left
+		//	3, 2, 6,  3, 6, 7, // right
+		//	1, 5, 6,  1, 6, 2, // front        
+		//	0, 4, 7,  0, 7, 3, // back
+		//};
 
-		uint32_t boxIndices[] =
+		for (uint32_t i = 0; i < indicies.size(); i += 6)
 		{
-			0, 1, 2,  0, 2, 3, // bottom
-			4, 5, 6,  4, 6, 7, // top
-			0, 1, 5,  0, 5, 4, // left
-			3, 2, 6,  3, 6, 7, // right
-			1, 5, 6,  1, 6, 2, // front        
-			0, 4, 7,  0, 7, 3, // back
-		};
+			KURO_CORE_TRACE(
+				"{0}, {1}, {2}, {3}, {4}, {5}", 
+				indicies[i + 0], 
+				indicies[i + 1], 
+				indicies[i + 2], 
+				indicies[i + 3], 
+				indicies[i + 4], 
+				indicies[i + 5]
+			);
+		} 
 
-		Ref<IndexBuffer> boxIB = IndexBuffer::Create(boxIndices, sizeof(boxIndices));
+
+		Ref<IndexBuffer> boxIB = IndexBuffer::Create(&(indicies[0]), s_Data.MaxCubeIndices);
 		s_Data.CubeVertexArray->SetIndexBuffer(boxIB);
 		//delete[] boxIB; // EROR
 
+		s_Data.CubeVertexPosition = new glm::vec4[s_Data.MaxCubeVertices];
+
+		for (uint32_t i = 0; i < s_Data.MaxCubeVertices; i++)
+		{
+			KURO_CORE_TRACE("{}", vertices[i].Position);
+			// Set Quad Vertex Position
+			s_Data.CubeVertexPosition[i] = { vertices[i].Position, 1.0f };
+		}
+
 		// Set Box Vertex Position
-		s_Data.CubeVertexPosition[0] = { -0.5f,  -0.5f,  0.5f, 1.0f };
-		s_Data.CubeVertexPosition[1] = {  0.5f,  -0.5f,  0.5f, 1.0f };
-		s_Data.CubeVertexPosition[2] = {  0.5f,   0.5f,  0.5f, 1.0f };
-		s_Data.CubeVertexPosition[3] = { -0.5f,   0.5f,  0.5f, 1.0f };
-			   
-		s_Data.CubeVertexPosition[4] = { -0.5f,  -0.5f, -0.5f, 1.0f };
-		s_Data.CubeVertexPosition[5] = {  0.5f,  -0.5f, -0.5f, 1.0f };
-		s_Data.CubeVertexPosition[6] = {  0.5f,   0.5f, -0.5f, 1.0f };
-		s_Data.CubeVertexPosition[7] = { -0.5f,   0.5f, -0.5f, 1.0f };
+		//s_Data.CubeVertexPosition[0] = { -0.5f,  -0.5f,  0.5f, 1.0f };
+		//s_Data.CubeVertexPosition[1] = {  0.5f,  -0.5f,  0.5f, 1.0f };
+		//s_Data.CubeVertexPosition[2] = {  0.5f,   0.5f,  0.5f, 1.0f };
+		//s_Data.CubeVertexPosition[3] = { -0.5f,   0.5f,  0.5f, 1.0f };
+		//	   
+		//s_Data.CubeVertexPosition[4] = { -0.5f,  -0.5f, -0.5f, 1.0f };
+		//s_Data.CubeVertexPosition[5] = {  0.5f,  -0.5f, -0.5f, 1.0f };
+		//s_Data.CubeVertexPosition[6] = {  0.5f,   0.5f, -0.5f, 1.0f };
+		//s_Data.CubeVertexPosition[7] = { -0.5f,   0.5f, -0.5f, 1.0f };
 
 		// Texture
 		s_Data.WhiteTexture = Texture2D::Create(TextureSpecification());
@@ -252,7 +280,7 @@ namespace Kuro
 			for (uint32_t i = 0; i < s_Data.TextureSlotIndex; i++)
 				s_Data.TextureSlots[i]->Bind(i);
 
-			s_Data.QuadShader->Bind();
+			s_Data.QuadShader->Bind();			
 			RenderCommand::DrawIndexed(s_Data.QuadVertexArray, s_Data.QuadIndexCount);
 		}
 
@@ -265,7 +293,7 @@ namespace Kuro
 			s_Data.CubeVertexBuffer->SetData(s_Data.CubeVertexBufferBase, dataSize);
 
 			s_Data.CubeShader->Bind();
-			RenderCommand::SetPolygonMode(PolygonMode::LINE); // INFO : Temporary to draw wireframe
+			RenderCommand::SetPolygonMode(PolygonMode::LINE); // INFO : Temporary to draw wireframe			
 			RenderCommand::DrawIndexed(s_Data.CubeVertexArray, s_Data.CubeIndexCount);
 		}
 	}
@@ -349,10 +377,10 @@ namespace Kuro
 	}
 
 	void Renderer::DrawBox(const glm::mat4& transform, const glm::vec4& color, int entiryID)
-	{
-		constexpr size_t boxVertexCount = 8;
+	{		
+		size_t boxVertexCount = s_Data.MaxCubeVertices;		
 
-		if (s_Data.CubeIndexCount >= RendererData::MaxIndices)
+		if (s_Data.CubeIndexCount >= s_Data.MaxCubeIndices)
 			NextBatch();
 
 		for (size_t i = 0; i < boxVertexCount; i++)
@@ -363,7 +391,7 @@ namespace Kuro
 			s_Data.CubeVertexBufferPtr++;
 		}
 
-		s_Data.CubeIndexCount += 36;
+		s_Data.CubeIndexCount += s_Data.MaxCubeIndices;
 	}
 
 	void Renderer::Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& transform)

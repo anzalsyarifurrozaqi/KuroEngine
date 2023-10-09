@@ -78,9 +78,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\..\Kuro\premake5.lua" />
+    <None Include="..\..\Kuro\vendor\ASSIMP\premake5.lua" />
     <None Include="..\..\Kuro\vendor\GLFW\premake5.lua" />
     <None Include="..\..\Kuro\vendor\Glad\premake5.lua" />
-    <None Include="..\..\Kuro\vendor\assimp\premake5.lua" />
     <None Include="..\..\Sandbox\premake5.lua" />
     <None Include="..\..\premake5.lua" />
     <None Include="premake5.lua" />
