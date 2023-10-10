@@ -153,6 +153,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Kuro\Core\Input.h" />
+    <ClInclude Include="src\Kuro\Core\MouseCodes.h" />
+    <ClInclude Include="src\Kuro\Renderer\FirstPersonCamera.h" />
+    <ClInclude Include="src\Kuro\Renderer\Camera.h" />
     <ClInclude Include="src\Kuro.h" />
     <ClInclude Include="src\Kuro\Core\Application.h" />
     <ClInclude Include="src\Kuro\Core\Assert.h" />
@@ -611,6 +615,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Kuro\Core\Input.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\FirstPersonCamera.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\Camera.cpp" />
     <ClCompile Include="src\Kuro\Core\Application.cpp" />
     <ClCompile Include="src\Kuro\Core\Layer.cpp" />
     <ClCompile Include="src\Kuro\Core\LayerStack.cpp" />

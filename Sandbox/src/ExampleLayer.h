@@ -19,6 +19,8 @@ private:
 	Kuro::ShaderLibrary m_ShaderLibrary;	
 
 	Kuro::OrthographicCameraController m_CameraController;
+	Kuro::FirstPersonCamera m_FirstPersonCamera;
+	Kuro::Camera m_Camera;
 	glm::vec4 m_Color = { 1.0f, 1.0f, 1.0f, 1.0f };
 
 	float seconds = 0.0f;

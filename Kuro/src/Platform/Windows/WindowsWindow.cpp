@@ -171,7 +171,9 @@ namespace Kuro
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			MouseMovedEvent event((float)xPos, (float)yPos);
+			int width, height;
+			glfwGetFramebufferSize(window, &width, &height);
+			MouseMovedEvent event((float)xPos, (float)yPos, width, height);
 			data.EventCallback(event);
 			});
 	}

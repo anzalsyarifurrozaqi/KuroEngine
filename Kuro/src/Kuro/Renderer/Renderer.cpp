@@ -77,7 +77,9 @@ namespace Kuro
 		//////////////////////
 		struct CameraData
 		{
-			glm::mat4 ViewProjection;
+			glm::mat4 View;
+			glm::mat4 Proj;
+			glm::vec4 CameraPos;
 		};
 		CameraData CameraBuffer;
 		Ref<UniformBuffer> CameraUniformBuffer;
@@ -255,9 +257,21 @@ namespace Kuro
 
 	void Renderer::BeginScene(const OrthographicCamera& camera)
 	{		
-		s_Data.CameraBuffer.ViewProjection = camera.GetViewProjectionMatrix();
+		s_Data.CameraBuffer.View = camera.GetViewProjectionMatrix();
 		s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(RendererData::CameraData));
 		
+		StartBatch();
+	}
+
+	void Renderer::BeginScene(const FirstPersonCamera& camera)
+	{				
+		// TODO : set camera perspective;
+		s_Data.CameraBuffer.View = camera.GetViewMatrix();
+		//s_Data.CameraBuffer.Proj = glm::perspective(45.0f, ratio, 0.1f, 1000.0f);
+		s_Data.CameraBuffer.CameraPos = glm::vec4(camera.GetPosition(), 1.0f);
+
+		s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(RendererData::CameraData));
+
 		StartBatch();
 	}
 

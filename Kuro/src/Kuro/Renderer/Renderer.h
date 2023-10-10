@@ -3,6 +3,7 @@
 #include "RenderCommand.h"
 #include "Shader.h"
 #include "OrthographicCamera.h"
+#include "FirstPersonCamera.h"
 #include "UniformBuffer.h"
 #include "Texture.h"
 
@@ -17,6 +18,7 @@ namespace Kuro
 		static void OnWindowResize(uint32_t width, uint32_t height);
 
 		static void BeginScene(const OrthographicCamera& camera);
+		static void BeginScene(const FirstPersonCamera& camera);
 		static void EndScene();
 		static void Flush();
 		

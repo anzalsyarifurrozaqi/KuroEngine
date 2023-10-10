@@ -1419,6 +1419,10 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\Camera.h" />
+    <ClInclude Include="src\Kuro\Renderer\FirstPersonCamera.h" />
+    <ClInclude Include="src\Kuro\Core\Input.h" />
+    <ClInclude Include="src\Kuro\Core\MouseCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kuro\Core\Application.cpp">
@@ -1505,5 +1509,8 @@
     <ClCompile Include="src\engineph.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\Camera.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\FirstPersonCamera.cpp" />
+    <ClCompile Include="src\Kuro\Core\Input.cpp" />
   </ItemGroup>
 </Project>

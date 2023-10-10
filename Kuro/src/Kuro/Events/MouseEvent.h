@@ -5,10 +5,10 @@
 namespace Kuro {
 	class MouseMovedEvent : public Event {
 	public:
-		MouseMovedEvent(float x, float y) : m_MouseX(x), m_MouseY(y) {}
+		MouseMovedEvent(float x, float y, int width, int height) : m_MouseX(x), m_MouseY(y), m_Widht(width), m_Height(height) {}
 
-		inline float GetX() const { return m_MouseX; }
-		inline float GetY() const { return m_MouseY; }
+		inline float GetX() const { return static_cast<float>( m_MouseX / m_Widht); }
+		inline float GetY() const { return static_cast<float>( m_MouseY / m_Height); }
 
 		std::string ToString() const override {
 			std::stringstream ss;
@@ -20,6 +20,7 @@ namespace Kuro {
 			EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
 		float m_MouseX, m_MouseY;
+		int m_Widht, m_Height;
 	};
 
 	class MouseScrolledEvent : public Event {
