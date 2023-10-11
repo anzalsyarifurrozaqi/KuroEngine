@@ -3,7 +3,8 @@
 #include "RenderCommand.h"
 #include "Shader.h"
 #include "OrthographicCamera.h"
-#include "FirstPersonCamera.h"
+#include "Camera.h"
+#include "EditorCamera.h"
 #include "UniformBuffer.h"
 #include "Texture.h"
 
@@ -18,7 +19,8 @@ namespace Kuro
 		static void OnWindowResize(uint32_t width, uint32_t height);
 
 		static void BeginScene(const OrthographicCamera& camera);
-		static void BeginScene(const FirstPersonCamera& camera);
+		static void BeginScene(const EditorCamera& camera);
+		static void BeginScene(const Camera& camera, const glm::mat4& transform);
 		static void EndScene();
 		static void Flush();
 		

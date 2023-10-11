@@ -2,34 +2,18 @@
 
 namespace Kuro
 {
-	class CameraPositionerInterface
+	class Camera
 	{
 	public:
-		virtual ~CameraPositionerInterface() = default;
-		virtual glm::mat4 GetViewMatrix() const = 0;
-		virtual glm::vec3 GetPosition() const = 0;
+		Camera() = default;
+		Camera(const glm::mat4& projection)
+			: m_Projection(projection) {}
+
+		virtual ~Camera() = default;
+
+		const glm::mat4& GetProjection() const { return m_Projection; }
+	protected:
+		glm::mat4 m_Projection = glm::mat4(1.0f);
 	};
-
-	class Camera final
-	{
-	public:
-		explicit Camera(CameraPositionerInterface& positioner)
-			: m_Positioner(&positioner)
-		{
-			KURO_CORE_TRACE("Camera");
-
-		}
-
-		Camera(const Camera&) = default;
-		Camera& operator = (const Camera&) = default;
-
-		glm::mat4 GetViewMatrix() const { return m_Positioner->GetViewMatrix(); }
-		glm::vec3 GetPosition() const { return m_Positioner->GetPosition(); }
-
-	private:
-		const CameraPositionerInterface* m_Positioner;
-	};
-
-
 }
 

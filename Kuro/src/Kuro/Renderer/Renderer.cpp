@@ -20,6 +20,9 @@ namespace Kuro
 	{
 		glm::vec3 Position;
 		glm::vec4 Color;
+		//glm::vec2 TexCoord;
+		//float TexIndex;
+		//float TilingFactor;
 
 		// Editor-only
 		int EntityID;
@@ -77,9 +80,7 @@ namespace Kuro
 		//////////////////////
 		struct CameraData
 		{
-			glm::mat4 View;
-			glm::mat4 Proj;
-			glm::vec4 CameraPos;
+			glm::mat4 ViewProjection;
 		};
 		CameraData CameraBuffer;
 		Ref<UniformBuffer> CameraUniformBuffer;
@@ -103,9 +104,9 @@ namespace Kuro
 		s_Data.QuadVertexBuffer->SetLayout({
 			{ ShaderDataType::Float3,	"a_Position" },
 			{ ShaderDataType::Float4,	"a_Color" },
-			{ ShaderDataType::Float2,	"a_TexCoord" },
-			{ ShaderDataType::Float,	"a_TexIndex" },
-			{ ShaderDataType::Float,	"a_TillingFactor" },
+			//{ ShaderDataType::Float2,	"a_TexCoord" },
+			//{ ShaderDataType::Float,	"a_TexIndex" },
+			//{ ShaderDataType::Float,	"a_TillingFactor" },
 			{ ShaderDataType::Int,		"a_EntityID" }
 		});
 		s_Data.QuadVertexArray->AddVertexBuffer(s_Data.QuadVertexBuffer);
@@ -127,19 +128,6 @@ namespace Kuro
 
 			offset += 4;			
 		}
-
-		//for (uint32_t i = 0; i < 54; i += 6)
-		//{
-		//	KURO_CORE_TRACE(
-		//		"{0}, {1}, {2}, {3}, {4}, {5}", 
-		//		quadIndices[i + 0], 
-		//		quadIndices[i + 1], 
-		//		quadIndices[i + 2], 
-		//		quadIndices[i + 3], 
-		//		quadIndices[i + 4], 
-		//		quadIndices[i + 5]
-		//	);
-		//} 
 
 		Ref<IndexBuffer> quadIB = IndexBuffer::Create(quadIndices, s_Data.MaxIndices);
 		s_Data.QuadVertexArray->SetIndexBuffer(quadIB);
@@ -257,19 +245,23 @@ namespace Kuro
 
 	void Renderer::BeginScene(const OrthographicCamera& camera)
 	{		
-		s_Data.CameraBuffer.View = camera.GetViewProjectionMatrix();
+		s_Data.CameraBuffer.ViewProjection = camera.GetViewProjectionMatrix();
 		s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(RendererData::CameraData));
 		
 		StartBatch();
 	}
 
-	void Renderer::BeginScene(const FirstPersonCamera& camera)
-	{				
-		// TODO : set camera perspective;
-		s_Data.CameraBuffer.View = camera.GetViewMatrix();
-		//s_Data.CameraBuffer.Proj = glm::perspective(45.0f, ratio, 0.1f, 1000.0f);
-		s_Data.CameraBuffer.CameraPos = glm::vec4(camera.GetPosition(), 1.0f);
+	void Renderer::BeginScene(const EditorCamera& camera)
+	{
+		s_Data.CameraBuffer.ViewProjection = camera.GetViewProjection();
+		s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(RendererData::CameraData));
 
+		StartBatch();
+	}
+
+	void Renderer::BeginScene(const Camera& camera, const glm::mat4& transform)
+	{		
+		s_Data.CameraBuffer.ViewProjection = camera.GetProjection() * glm::inverse(transform);		
 		s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(RendererData::CameraData));
 
 		StartBatch();
@@ -393,6 +385,9 @@ namespace Kuro
 	void Renderer::DrawBox(const glm::mat4& transform, const glm::vec4& color, int entiryID)
 	{		
 		size_t boxVertexCount = s_Data.MaxCubeVertices;		
+		const float textureIndex = 0.0f; // White Texture
+		constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f }, { 1.0f, 1.0f }, { 0.0f, 1.0f } };
+		const float tilingFactor = 1.0f;
 
 		if (s_Data.CubeIndexCount >= s_Data.MaxCubeIndices)
 			NextBatch();
@@ -401,6 +396,9 @@ namespace Kuro
 		{
 			s_Data.CubeVertexBufferPtr->Position = transform * s_Data.CubeVertexPosition[i];
 			s_Data.CubeVertexBufferPtr->Color = color;
+			//s_Data.CubeVertexBufferPtr->TexCoord = textureCoords[i];
+			//s_Data.CubeVertexBufferPtr->TexIndex = textureIndex;
+			//s_Data.CubeVertexBufferPtr->TilingFactor = tilingFactor;
 			s_Data.CubeVertexBufferPtr->EntityID = entiryID;
 			s_Data.CubeVertexBufferPtr++;
 		}

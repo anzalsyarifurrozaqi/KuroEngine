@@ -1,140 +1,140 @@
-[14:28:47] [info] KURO: Creating Window Kuro Engine (1280, 720)
-[14:28:48] [info] KURO: OpenGL Info:
-[14:28:48] [info] KURO:   Vendor: NVIDIA Corporation
-[14:28:48] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
-[14:28:48] [info] KURO:   Version: 4.6.0 NVIDIA 537.42
-[14:28:48] [info] KURO: Renderer::Init
-[14:28:48] [info] KURO: OpenGLRendererAPI::Init
-[14:28:48] [trace] KURO: Model::LoadModel
-[14:28:48] [trace] KURO: assets/objects/Cube_2x2x2m.glb
-[14:28:48] [trace] KURO: Model::ProcessNode
-[14:28:48] [trace] KURO: Model::ProcessMesh
-[14:28:48] [trace] KURO: 96
-[14:28:48] [info] KURO: 132
-[14:28:48] [trace] KURO: 0, 1, 2, 0, 2, 3
-[14:28:48] [trace] KURO: 4, 5, 6, 4, 6, 7
-[14:28:48] [trace] KURO: 8, 9, 10, 8, 10, 11
-[14:28:48] [trace] KURO: 12, 13, 14, 12, 14, 15
-[14:28:48] [trace] KURO: 16, 17, 18, 16, 18, 19
-[14:28:48] [trace] KURO: 20, 21, 22, 23, 24, 25
-[14:28:48] [trace] KURO: 26, 27, 28, 29, 30, 31
-[14:28:48] [trace] KURO: 32, 33, 34, 35, 36, 37
-[14:28:48] [trace] KURO: 38, 39, 40, 41, 42, 43
-[14:28:48] [trace] KURO: 44, 45, 46, 44, 46, 47
-[14:28:48] [trace] KURO: 48, 49, 50, 48, 50, 51
-[14:28:48] [trace] KURO: 52, 53, 54, 52, 54, 55
-[14:28:48] [trace] KURO: 56, 57, 58, 56, 58, 59
-[14:28:48] [trace] KURO: 60, 61, 62, 60, 62, 63
-[14:28:48] [trace] KURO: 64, 65, 66, 64, 66, 67
-[14:28:48] [trace] KURO: 68, 69, 70, 68, 70, 71
-[14:28:48] [trace] KURO: 72, 73, 74, 72, 74, 75
-[14:28:48] [trace] KURO: 76, 77, 78, 76, 78, 79
-[14:28:48] [trace] KURO: 80, 81, 82, 80, 82, 83
-[14:28:48] [trace] KURO: 84, 85, 86, 84, 86, 87
-[14:28:48] [trace] KURO: 88, 89, 90, 88, 90, 91
-[14:28:48] [trace] KURO: 92, 93, 94, 92, 94, 95
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
-[14:28:48] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
-[14:28:48] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
-[14:28:48] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
-[14:28:48] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
-[14:28:48] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Renderer2D_Quad.glsl
-[14:28:48] [info] KURO: OpenGLShader::ReadFile
-[14:28:48] [info] KURO: OpenGLShader::PreProcess
-[14:28:48] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
-[14:28:48] [trace] KURO: 35633
-[14:28:48] [trace] KURO: #version 460 core
+[13:15:21] [info] KURO: Creating Window Kuro Engine (1280, 720)
+[13:15:21] [info] KURO: OpenGL Info:
+[13:15:21] [info] KURO:   Vendor: NVIDIA Corporation
+[13:15:21] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
+[13:15:21] [info] KURO:   Version: 4.6.0 NVIDIA 537.42
+[13:15:21] [info] KURO: Renderer::Init
+[13:15:21] [info] KURO: OpenGLRendererAPI::Init
+[13:15:21] [trace] KURO: Model::LoadModel
+[13:15:21] [trace] KURO: assets/objects/Cube_2x2x2m.glb
+[13:15:21] [trace] KURO: Model::ProcessNode
+[13:15:21] [trace] KURO: Model::ProcessMesh
+[13:15:21] [trace] KURO: 96
+[13:15:21] [info] KURO: 132
+[13:15:21] [trace] KURO: 0, 1, 2, 0, 2, 3
+[13:15:21] [trace] KURO: 4, 5, 6, 4, 6, 7
+[13:15:21] [trace] KURO: 8, 9, 10, 8, 10, 11
+[13:15:21] [trace] KURO: 12, 13, 14, 12, 14, 15
+[13:15:21] [trace] KURO: 16, 17, 18, 16, 18, 19
+[13:15:21] [trace] KURO: 20, 21, 22, 23, 24, 25
+[13:15:21] [trace] KURO: 26, 27, 28, 29, 30, 31
+[13:15:21] [trace] KURO: 32, 33, 34, 35, 36, 37
+[13:15:21] [trace] KURO: 38, 39, 40, 41, 42, 43
+[13:15:21] [trace] KURO: 44, 45, 46, 44, 46, 47
+[13:15:21] [trace] KURO: 48, 49, 50, 48, 50, 51
+[13:15:21] [trace] KURO: 52, 53, 54, 52, 54, 55
+[13:15:21] [trace] KURO: 56, 57, 58, 56, 58, 59
+[13:15:21] [trace] KURO: 60, 61, 62, 60, 62, 63
+[13:15:21] [trace] KURO: 64, 65, 66, 64, 66, 67
+[13:15:21] [trace] KURO: 68, 69, 70, 68, 70, 71
+[13:15:21] [trace] KURO: 72, 73, 74, 72, 74, 75
+[13:15:21] [trace] KURO: 76, 77, 78, 76, 78, 79
+[13:15:21] [trace] KURO: 80, 81, 82, 80, 82, 83
+[13:15:21] [trace] KURO: 84, 85, 86, 84, 86, 87
+[13:15:21] [trace] KURO: 88, 89, 90, 88, 90, 91
+[13:15:21] [trace] KURO: 92, 93, 94, 92, 94, 95
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(-1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, 1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(-1.000000, 0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, 0.951532)
+[13:15:21] [trace] KURO: vec3(0.951532, -1.000000, -0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, -0.951532)
+[13:15:21] [trace] KURO: vec3(1.000000, -0.951532, 0.951532)
+[13:15:21] [trace] KURO: vec3(-0.951532, -0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(-0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, 0.951532, -1.000000)
+[13:15:21] [trace] KURO: vec3(0.951532, -0.951532, -1.000000)
+[13:15:21] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Renderer2D_Quad.glsl
+[13:15:21] [info] KURO: OpenGLShader::ReadFile
+[13:15:21] [info] KURO: OpenGLShader::PreProcess
+[13:15:21] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[13:15:21] [trace] KURO: 35633
+[13:15:21] [trace] KURO: #version 460 core
 
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
@@ -173,8 +173,8 @@ void main()
 }
 
 
-[14:28:48] [trace] KURO: 35632
-[14:28:48] [trace] KURO: #version 460 core
+[13:15:21] [trace] KURO: 35632
+[13:15:21] [trace] KURO: #version 460 core
 
 layout(location = 0) out vec4 o_Color;
 layout(location = 1) out int o_EntityID;
@@ -239,46 +239,24 @@ void main()
 	o_EntityID = v_EntityID;
 }
 
-[14:28:48] [info] KURO: OpenGLShader::CreateProgram
-[14:28:48] [warning] KURO: Shader creation took 2.8639002 ms
-[14:28:48] [info] KURO: OpenGLShader::OpenGLShader name : Renderer2D_Quad
-[14:28:48] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Box.glsl
-[14:28:48] [info] KURO: OpenGLShader::ReadFile
-[14:28:48] [info] KURO: OpenGLShader::PreProcess
-[14:28:48] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
-[14:28:48] [trace] KURO: 35633
-[14:28:48] [trace] KURO: #version 460 core
-
-layout(std140, binding = 0) uniform CameraData
-{
-	mat4 View;
-	mat4 Proj;
-	vec4 CameraPos;
-};
-
-struct Vertex
-{
-	float Position[3];
-	float Normal[3];
-	float TexCoords[2];
-	float Tangent[3];
-	float Bitangent[3];
-};
-
-layout(std430, binding = 1) restrict readonly buffer Vertices
-{
-	Vertex in_Vertices[];
-};
-
-layout(std430, binding = 2) restrict readonly buffer Matrices // TODO : perlu create buffer untuk model
-{
-	mat4 in_ModelMatrices[];
-};
-
+[13:15:21] [info] KURO: OpenGLShader::CreateProgram
+[13:15:21] [warning] KURO: Shader creation took 3.3659003 ms
+[13:15:21] [info] KURO: OpenGLShader::OpenGLShader name : Renderer2D_Quad
+[13:15:21] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Box.glsl
+[13:15:21] [info] KURO: OpenGLShader::ReadFile
+[13:15:21] [info] KURO: OpenGLShader::PreProcess
+[13:15:21] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[13:15:21] [trace] KURO: 35633
+[13:15:21] [trace] KURO: #version 460 core
 
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
 layout(location = 2) in int a_EntityID;
+
+layout(std140, binding = 0) uniform Camera
+{
+	mat4 u_ViewProjection;
+};
 
 struct VertexOutput
 {
@@ -293,15 +271,12 @@ void main()
 	Output.Color = vec4(a_Position, 1.0);
 	v_EntityID = a_EntityID;
 
-	// mat4 model = in_ModelMatrices[gl_BaseInstance]; TODO : perlu create buffer untuk model;
-	mat4 MVP = View;
-
-	gl_Position = MVP * vec4(a_Position, 1.0);
+	gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 }
 
 
-[14:28:48] [trace] KURO: 35632
-[14:28:48] [trace] KURO: #version 460 core
+[13:15:21] [trace] KURO: 35632
+[13:15:21] [trace] KURO: #version 460 core
 
 layout(location = 0) out vec4 o_Color;
 layout(location = 1) out int o_EntityID;
@@ -322,8 +297,6 @@ void main()
 	o_EntityID = v_EntityID;
 }
 
-[14:28:48] [info] KURO: OpenGLShader::CreateProgram
-[14:28:48] [warning] KURO: Shader creation took 66.719 ms
-[14:28:48] [info] KURO: OpenGLShader::OpenGLShader name : Box
-[14:28:48] [trace] KURO: FirstPersonCamera::FirstPersonCamera
-[14:28:48] [trace] KURO: Camera
+[13:15:21] [info] KURO: OpenGLShader::CreateProgram
+[13:15:21] [warning] KURO: Shader creation took 55.19841 ms
+[13:15:21] [info] KURO: OpenGLShader::OpenGLShader name : Box

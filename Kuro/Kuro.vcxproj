@@ -155,7 +155,7 @@
   <ItemGroup>
     <ClInclude Include="src\Kuro\Core\Input.h" />
     <ClInclude Include="src\Kuro\Core\MouseCodes.h" />
-    <ClInclude Include="src\Kuro\Renderer\FirstPersonCamera.h" />
+    <ClInclude Include="src\Kuro\Renderer\EditorCamera.h" />
     <ClInclude Include="src\Kuro\Renderer\Camera.h" />
     <ClInclude Include="src\Kuro.h" />
     <ClInclude Include="src\Kuro\Core\Application.h" />
@@ -616,7 +616,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kuro\Core\Input.cpp" />
-    <ClCompile Include="src\Kuro\Renderer\FirstPersonCamera.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\EditorCamera.cpp" />
     <ClCompile Include="src\Kuro\Renderer\Camera.cpp" />
     <ClCompile Include="src\Kuro\Core\Application.cpp" />
     <ClCompile Include="src\Kuro\Core\Layer.cpp" />

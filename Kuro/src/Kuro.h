@@ -10,7 +10,7 @@
 
 #include "Kuro/Core/Timestep.h"
 #include "Kuro/Renderer/OrthographicCameraController.h"
-#include "Kuro/Renderer/FirstPersonCamera.h"
+#include "Kuro/Renderer/EditorCamera.h"
 
 // ---Renderer-----------------
 #include "Kuro/Renderer/Renderer.h"
