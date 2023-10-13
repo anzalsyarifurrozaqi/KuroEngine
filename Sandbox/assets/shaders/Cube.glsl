@@ -1,22 +1,5 @@
-[11:00:37] [info] KURO: Creating Window Kuro Engine (1280, 720)
-[11:00:37] [info] KURO: OpenGL Info:
-[11:00:37] [info] KURO:   Vendor: NVIDIA Corporation
-[11:00:37] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
-[11:00:37] [info] KURO:   Version: 4.6.0 NVIDIA 537.42
-[11:00:37] [info] KURO: Renderer::Init
-[11:00:37] [info] KURO: OpenGLRendererAPI::Init
-[11:00:37] [trace] KURO: Model::LoadModel
-[11:00:37] [trace] KURO: assets/objects/Cube_2x2x2m.glb
-[11:00:37] [trace] KURO: Model::ProcessNode
-[11:00:37] [trace] KURO: Model::ProcessMesh
-[11:00:37] [trace] KURO: 96
-[11:00:37] [info] KURO: 132
-[11:00:37] [info] KURO: OpenGLShader::OpenGLShader m_FilePath : assets/shaders/Cube.glsl
-[11:00:37] [info] KURO: OpenGLShader::ReadFile
-[11:00:37] [info] KURO: OpenGLShader::PreProcess
-[11:00:37] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
-[11:00:37] [trace] KURO: 35633
-[11:00:37] [trace] KURO: #version 460 core
+#type vertex
+#version 460 core
 
 layout ( location = 0 ) in vec3 a_Position;
 layout ( location = 1 ) in vec4 a_Color;
@@ -44,9 +27,8 @@ void main()
 	gl_Position = u_ViewProjection * vec4(a_Position, 1.0f);
 };
 
-
-[11:00:37] [trace] KURO: 36313
-[11:00:37] [trace] KURO: #version 460 core
+#type geometry
+#version 460 core
 
 struct VertexOutput
 {
@@ -83,9 +65,8 @@ void main()
 	EndPrimitive();
 };
 
-
-[11:00:37] [trace] KURO: 35632
-[11:00:37] [trace] KURO: #version 460 core
+#type fragment
+#version 460 core
 
 struct VertexOutput
 {
@@ -113,7 +94,3 @@ void main ()
 	texColor *= texture(u_Textures[ 0], Input.TexCoord * 1.0);
 	out_FragColor = mix( texColor * vec4(0.8), texColor, edgeFactor(2.0) );
 };
-
-[11:00:37] [info] KURO: OpenGLShader::CreateProgram
-[11:00:37] [warning] KURO: Shader creation took 55.24401 ms
-[11:00:37] [info] KURO: OpenGLShader::OpenGLShader name : Cube

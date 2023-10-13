@@ -122,7 +122,8 @@ namespace Kuro
 		s_Data.TextureSlots[0] = s_Data.WhiteTexture;
 
 		// Shader		
-		s_Data.CubeShader = Shader::Create("assets/shaders/Box.glsl");		
+		//s_Data.CubeShader = Shader::Create("assets/shaders/Box.glsl");		
+		s_Data.CubeShader = Shader::Create("assets/shaders/Cube.glsl");		
 
 		// Camera buffer
 		s_Data.CameraUniformBuffer = UniformBuffer::Create(sizeof(RendererData::CameraData), 0);

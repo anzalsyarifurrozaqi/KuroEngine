@@ -22,6 +22,8 @@ namespace Kuro
 				return GL_VERTEX_SHADER;
 			if (type == "fragment" || type == "pixel")
 				return GL_FRAGMENT_SHADER;
+			if (type == "geometry")
+				return GL_GEOMETRY_SHADER;
 
 			KURO_CORE_ASSERT(false, "Unknown shader type!");
 			return 0;
