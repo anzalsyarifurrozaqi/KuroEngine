@@ -25,20 +25,6 @@ namespace Kuro
 		static void Flush();
 		
 		// primitive
-		
-		////////////////////////////////////
-		// QUAD ///////////////////////////
-		//////////////////////////////////
-		static void DrawQuad(const glm::vec2& position, const glm::vec2& size, const glm::vec4& color);
-		static void DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color);
-
-		static void DrawRotateQuad(const glm::vec2& position, const glm::vec2& size, float rotation, const glm::vec4& color);
-		static void DrawRotateQuad(const glm::vec3& position, const glm::vec2& size, float rotation, const glm::vec4& color);
-
-		static void DrawQuad(const glm::mat4& transform, const glm::vec4& color, int entityID = -1);
-		////////////////////////////////////
-		// QUAD ///////////////////////////
-		//////////////////////////////////
 
 		//////////////////////////////////
 		// BOX //////////////////////////
@@ -49,9 +35,7 @@ namespace Kuro
 		static void DrawRotateBox(const glm::vec2& position, const glm::vec3& size, float rotation, const glm::vec4& color);
 		static void DrawRotateBox(const glm::vec3& position, const glm::vec3& size, float rotation, const glm::vec4& color);
 
-		static void DrawBox(const glm::mat4& transform, const glm::vec4& color, int entiryID = -1);
-
-		static void Submit(const Ref<Shader>& shader, const Ref<VertexArray>& vertexArray, const glm::mat4& transform = glm::mat4(1.0f));
+		static void DrawBox(const glm::mat4& transform, const glm::vec4& color, int entiryID = -1);		
 
 		static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 

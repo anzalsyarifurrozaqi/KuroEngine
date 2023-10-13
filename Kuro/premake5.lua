@@ -16,6 +16,7 @@ project "Kuro"
 		"src/**.cpp",
 		"vendor/glm/glm/**.hpp",
 		"vendor/glm/glm/**.inl",
+		"vendor/stb/**.h"
 	}
 
 	defines
@@ -32,6 +33,7 @@ project "Kuro"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ASSIMP}",
+		"%{IncludeDir.stb}"
 		-- "%{IncludeDir.VulkanSDK}"
     }	
 

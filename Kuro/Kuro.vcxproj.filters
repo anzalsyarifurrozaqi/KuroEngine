@@ -49,6 +49,27 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb">
+      <UniqueIdentifier>{8BD3C5A8-778B-07F6-E092-E051CC69A2E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb\deprecated">
+      <UniqueIdentifier>{4B110A4A-B77D-C544-8071-5DA2EC9CE7AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb\stb_image_resize_test">
+      <UniqueIdentifier>{55CD6635-411E-5277-6A82-40395632E5E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb\tests">
+      <UniqueIdentifier>{ADFA85EA-99F3-A43C-C225-8AC1AE7D8448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb\tests\caveview">
+      <UniqueIdentifier>{964AC9A2-020D-FD2C-4BBD-8BB9B7BED50A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb\tests\oversample">
+      <UniqueIdentifier>{3A63C469-A670-F24F-2F57-EE3A9B63BE06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vendor\stb\tests\prerelease">
+      <UniqueIdentifier>{2463F77B-9070-2562-1957-214D8563F118}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Kuro.h">
@@ -66,6 +87,9 @@
     <ClInclude Include="src\Kuro\Core\EntryPoint.h">
       <Filter>src\Kuro\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\Kuro\Core\Input.h">
+      <Filter>src\Kuro\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\Kuro\Core\KeyCodes.h">
       <Filter>src\Kuro\Core</Filter>
     </ClInclude>
@@ -76,6 +100,9 @@
       <Filter>src\Kuro\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Core\Log.h">
+      <Filter>src\Kuro\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Core\MouseCodes.h">
       <Filter>src\Kuro\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Core\PlatformDetection.h">
@@ -103,6 +130,12 @@
       <Filter>src\Kuro\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\Buffer.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\Camera.h">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Kuro\Renderer\EditorCamera.h">
       <Filter>src\Kuro\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Kuro\Renderer\GraphicsContext.h">
@@ -1419,13 +1452,111 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Kuro\Renderer\Camera.h" />
-    <ClInclude Include="src\Kuro\Renderer\EditorCamera.h" />
-    <ClInclude Include="src\Kuro\Core\Input.h" />
-    <ClInclude Include="src\Kuro\Core\MouseCodes.h" />
+    <ClInclude Include="vendor\stb\deprecated\rrsprintf.h">
+      <Filter>vendor\stb\deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\deprecated\stb.h">
+      <Filter>vendor\stb\deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\deprecated\stb_image_resize.h">
+      <Filter>vendor\stb\deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\deprecated\stretchy_buffer.h">
+      <Filter>vendor\stb\deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_c_lexer.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_connected_components.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_divide.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_ds.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_dxt.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_easy_font.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_herringbone_wang_tile.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_hexwave.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_image.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_image_resize2.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_image_resize_test\old_image_resize.h">
+      <Filter>vendor\stb\stb_image_resize_test</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_image_write.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_include.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_leakcheck.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_perlin.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_rect_pack.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_sprintf.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_textedit.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_tilemap_editor.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_truetype.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\stb_voxel_render.h">
+      <Filter>vendor\stb</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\caveview\cave_parse.h">
+      <Filter>vendor\stb\tests\caveview</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\caveview\caveview.h">
+      <Filter>vendor\stb\tests\caveview</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\caveview\glext.h">
+      <Filter>vendor\stb\tests\caveview</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\caveview\glext_list.h">
+      <Filter>vendor\stb\tests\caveview</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\caveview\stb_gl.h">
+      <Filter>vendor\stb\tests\caveview</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\caveview\stb_glprog.h">
+      <Filter>vendor\stb\tests\caveview</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\oversample\stb_wingraph.h">
+      <Filter>vendor\stb\tests\oversample</Filter>
+    </ClInclude>
+    <ClInclude Include="vendor\stb\tests\prerelease\stb_lib.h">
+      <Filter>vendor\stb\tests\prerelease</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Kuro\Core\Application.cpp">
+      <Filter>src\Kuro\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Core\Input.cpp">
       <Filter>src\Kuro\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Kuro\Core\Layer.cpp">
@@ -1441,6 +1572,12 @@
       <Filter>src\Kuro\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\Buffer.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\Camera.cpp">
+      <Filter>src\Kuro\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Kuro\Renderer\EditorCamera.cpp">
       <Filter>src\Kuro\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Kuro\Renderer\GraphicsContext.cpp">
@@ -1509,8 +1646,5 @@
     <ClCompile Include="src\engineph.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Kuro\Renderer\Camera.cpp" />
-    <ClCompile Include="src\Kuro\Renderer\EditorCamera.cpp" />
-    <ClCompile Include="src\Kuro\Core\Input.cpp" />
   </ItemGroup>
 </Project>

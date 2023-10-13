@@ -13,3 +13,6 @@
 [submodule "Kuro/vendor/ASSIMP"]
 	path = Kuro/vendor/ASSIMP
 	url = https://github.com/assimp/assimp.git
+[submodule "Kuro/vendor/stb"]
+	path = Kuro/vendor/stb
+	url = https://github.com/nothings/stb.git

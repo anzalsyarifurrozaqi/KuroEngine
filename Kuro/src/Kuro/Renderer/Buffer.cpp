@@ -29,7 +29,7 @@ namespace Kuro
 		return nullptr;
 	}
 
-	Ref<VertexBuffer> VertexBuffer::Create(Vertex* vertices, uint32_t size)
+	Ref<VertexBuffer> VertexBuffer::Create(VertexData* vertices, uint32_t size)
 	{
 		switch (Renderer::GetAPI())
 		{

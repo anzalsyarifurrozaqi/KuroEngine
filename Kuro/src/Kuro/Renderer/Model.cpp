@@ -48,12 +48,12 @@ namespace Kuro
 	void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
 	{
 		KURO_CORE_TRACE("Model::ProcessMesh");
-		std::vector<Vertex> vertices;
+		std::vector<VertexData> vertices;
 		std::vector<unsigned int> indices;		
 
 		for (unsigned int i = 0; i < mesh->mNumVertices; i++)
 		{
-			Vertex vertex;
+			VertexData vertex;
 			glm::vec3 vector;
 
 			// Positions

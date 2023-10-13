@@ -2,7 +2,7 @@
 
 namespace Kuro
 {
-	typedef struct Vertex
+	typedef struct VertexData
 	{
 		glm::vec3 Position;
 		glm::vec3 Normal;
@@ -15,13 +15,13 @@ namespace Kuro
 	{
 	public:
 
-		Mesh(std::vector<Vertex> vetices, std::vector<uint32_t> indices);
+		Mesh(std::vector<VertexData> vetices, std::vector<uint32_t> indices);
 		
-		std::vector<Vertex> GetVertices() { return vertices; }
+		std::vector<VertexData> GetVertices() { return vertices; }
 		std::vector<uint32_t> GetIndices() { return indices; }
 
 	private:
-		std::vector<Vertex> vertices;
+		std::vector<VertexData> vertices;
 		std::vector<uint32_t> indices;
 	};
 }

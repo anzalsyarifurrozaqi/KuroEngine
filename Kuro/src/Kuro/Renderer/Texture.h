@@ -47,7 +47,7 @@ namespace Kuro
 	{
 	public:
 		static Ref<Texture2D> Create(const TextureSpecification& specification);
-		static Ref<Texture2D> Create(const std::string* path);
+		static Ref<Texture2D> Create(const std::string& path);
 	};
 }
 

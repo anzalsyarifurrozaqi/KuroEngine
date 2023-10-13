@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>engineph.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;KURO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\glm;vendor\Glad\include;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\glm;vendor\Glad\include;vendor\ASSIMP\include;vendor\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -102,7 +102,7 @@
       <PrecompiledHeaderFile>engineph.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;KURO_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\glm;vendor\Glad\include;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\glm;vendor\Glad\include;vendor\ASSIMP\include;vendor\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>engineph.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;KURO_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\glm;vendor\Glad\include;vendor\ASSIMP\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\glm;vendor\Glad\include;vendor\ASSIMP\include;vendor\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -153,19 +153,17 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\Kuro\Core\Input.h" />
-    <ClInclude Include="src\Kuro\Core\MouseCodes.h" />
-    <ClInclude Include="src\Kuro\Renderer\EditorCamera.h" />
-    <ClInclude Include="src\Kuro\Renderer\Camera.h" />
     <ClInclude Include="src\Kuro.h" />
     <ClInclude Include="src\Kuro\Core\Application.h" />
     <ClInclude Include="src\Kuro\Core\Assert.h" />
     <ClInclude Include="src\Kuro\Core\Base.h" />
     <ClInclude Include="src\Kuro\Core\EntryPoint.h" />
+    <ClInclude Include="src\Kuro\Core\Input.h" />
     <ClInclude Include="src\Kuro\Core\KeyCodes.h" />
     <ClInclude Include="src\Kuro\Core\Layer.h" />
     <ClInclude Include="src\Kuro\Core\LayerStack.h" />
     <ClInclude Include="src\Kuro\Core\Log.h" />
+    <ClInclude Include="src\Kuro\Core\MouseCodes.h" />
     <ClInclude Include="src\Kuro\Core\PlatformDetection.h" />
     <ClInclude Include="src\Kuro\Core\Timer.h" />
     <ClInclude Include="src\Kuro\Core\Timestep.h" />
@@ -175,6 +173,8 @@
     <ClInclude Include="src\Kuro\Events\KeyEvent.h" />
     <ClInclude Include="src\Kuro\Events\MouseEvent.h" />
     <ClInclude Include="src\Kuro\Renderer\Buffer.h" />
+    <ClInclude Include="src\Kuro\Renderer\Camera.h" />
+    <ClInclude Include="src\Kuro\Renderer\EditorCamera.h" />
     <ClInclude Include="src\Kuro\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Kuro\Renderer\Mesh.h" />
     <ClInclude Include="src\Kuro\Renderer\Model.h" />
@@ -613,17 +613,50 @@
     <ClInclude Include="vendor\glm\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="vendor\stb\deprecated\rrsprintf.h" />
+    <ClInclude Include="vendor\stb\deprecated\stb.h" />
+    <ClInclude Include="vendor\stb\deprecated\stb_image_resize.h" />
+    <ClInclude Include="vendor\stb\deprecated\stretchy_buffer.h" />
+    <ClInclude Include="vendor\stb\stb_c_lexer.h" />
+    <ClInclude Include="vendor\stb\stb_connected_components.h" />
+    <ClInclude Include="vendor\stb\stb_divide.h" />
+    <ClInclude Include="vendor\stb\stb_ds.h" />
+    <ClInclude Include="vendor\stb\stb_dxt.h" />
+    <ClInclude Include="vendor\stb\stb_easy_font.h" />
+    <ClInclude Include="vendor\stb\stb_herringbone_wang_tile.h" />
+    <ClInclude Include="vendor\stb\stb_hexwave.h" />
+    <ClInclude Include="vendor\stb\stb_image.h" />
+    <ClInclude Include="vendor\stb\stb_image_resize2.h" />
+    <ClInclude Include="vendor\stb\stb_image_resize_test\old_image_resize.h" />
+    <ClInclude Include="vendor\stb\stb_image_write.h" />
+    <ClInclude Include="vendor\stb\stb_include.h" />
+    <ClInclude Include="vendor\stb\stb_leakcheck.h" />
+    <ClInclude Include="vendor\stb\stb_perlin.h" />
+    <ClInclude Include="vendor\stb\stb_rect_pack.h" />
+    <ClInclude Include="vendor\stb\stb_sprintf.h" />
+    <ClInclude Include="vendor\stb\stb_textedit.h" />
+    <ClInclude Include="vendor\stb\stb_tilemap_editor.h" />
+    <ClInclude Include="vendor\stb\stb_truetype.h" />
+    <ClInclude Include="vendor\stb\stb_voxel_render.h" />
+    <ClInclude Include="vendor\stb\tests\caveview\cave_parse.h" />
+    <ClInclude Include="vendor\stb\tests\caveview\caveview.h" />
+    <ClInclude Include="vendor\stb\tests\caveview\glext.h" />
+    <ClInclude Include="vendor\stb\tests\caveview\glext_list.h" />
+    <ClInclude Include="vendor\stb\tests\caveview\stb_gl.h" />
+    <ClInclude Include="vendor\stb\tests\caveview\stb_glprog.h" />
+    <ClInclude Include="vendor\stb\tests\oversample\stb_wingraph.h" />
+    <ClInclude Include="vendor\stb\tests\prerelease\stb_lib.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Kuro\Core\Input.cpp" />
-    <ClCompile Include="src\Kuro\Renderer\EditorCamera.cpp" />
-    <ClCompile Include="src\Kuro\Renderer\Camera.cpp" />
     <ClCompile Include="src\Kuro\Core\Application.cpp" />
+    <ClCompile Include="src\Kuro\Core\Input.cpp" />
     <ClCompile Include="src\Kuro\Core\Layer.cpp" />
     <ClCompile Include="src\Kuro\Core\LayerStack.cpp" />
     <ClCompile Include="src\Kuro\Core\Log.cpp" />
     <ClCompile Include="src\Kuro\Core\Window.cpp" />
     <ClCompile Include="src\Kuro\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\Camera.cpp" />
+    <ClCompile Include="src\Kuro\Renderer\EditorCamera.cpp" />
     <ClCompile Include="src\Kuro\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\Kuro\Renderer\Mesh.cpp" />
     <ClCompile Include="src\Kuro\Renderer\Model.cpp" />

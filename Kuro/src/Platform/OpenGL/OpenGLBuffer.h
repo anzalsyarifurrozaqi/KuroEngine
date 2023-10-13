@@ -10,7 +10,7 @@ namespace Kuro
 	public:
 		OpenGLVertexBuffer(uint32_t size);
 		OpenGLVertexBuffer(float* vertices, uint32_t size);
-		OpenGLVertexBuffer(Vertex* vertexData, uint32_t size);
+		OpenGLVertexBuffer(VertexData* vertexData, uint32_t size);
 		virtual ~OpenGLVertexBuffer();
 		
 		void Bind() const override;
