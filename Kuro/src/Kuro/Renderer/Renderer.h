@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "EditorCamera.h"
 #include "UniformBuffer.h"
+#include "Buffer.h"
 #include "Texture.h"
 
 namespace Kuro
@@ -29,13 +30,24 @@ namespace Kuro
 		//////////////////////////////////
 		// BOX //////////////////////////
 		////////////////////////////////
-		static void DrawBox(const glm::vec2& position, const glm::vec3& size, const glm::vec4& color);
-		static void DrawBox(const glm::vec3& position, const glm::vec3& size, const glm::vec4& color);
+		static void DrawCube(const glm::vec2& position, const glm::vec3& size, const glm::vec4& color);
+		static void DrawCube(const glm::vec3& position, const glm::vec3& size, const glm::vec4& color);
 
-		static void DrawRotateBox(const glm::vec2& position, const glm::vec3& size, float rotation, const glm::vec4& color);
-		static void DrawRotateBox(const glm::vec3& position, const glm::vec3& size, float rotation, const glm::vec4& color);
+		static void DrawRotateCube(const glm::vec2& position, const glm::vec3& size, float rotation, const glm::vec4& color);
+		static void DrawRotateCube(const glm::vec3& position, const glm::vec3& size, float rotation, const glm::vec4& color);
 
-		static void DrawBox(const glm::mat4& transform, const glm::vec4& color, int entiryID = -1);		
+		static void DrawCube(const glm::mat4& transform, const glm::vec4& color, int entiryID = -1);
+
+		//////////////////////////////////
+		// PLANE ////////////////////////
+		////////////////////////////////
+		static void DrawPlane(const glm::vec2& position, const glm::vec3& size, const glm::vec4& color);
+		static void DrawPlane(const glm::vec3& position, const glm::vec3& size, const glm::vec4& color);
+
+		static void DrawRotatePlane(const glm::vec2& position, const glm::vec3& size, float rotation, const glm::vec4& color);
+		static void DrawRotatePlane(const glm::vec3& position, const glm::vec3& size, float rotation, const glm::vec4& color);
+
+		static void DrawPlane(const glm::mat4& transform, const glm::vec4& color, int entiryID = -1);
 
 		static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); }
 

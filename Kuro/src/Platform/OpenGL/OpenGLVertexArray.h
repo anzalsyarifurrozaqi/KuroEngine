@@ -15,7 +15,9 @@ namespace Kuro
 
 		void AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) override;
 		void SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) override;
-		
+
+		uint32_t GetHandle() const override { return m_RendererID; }
+
 		const std::vector<Ref<VertexBuffer>>& GetVertexBuffers() const { return m_VertexBuffers; };
 		const Ref<IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
 

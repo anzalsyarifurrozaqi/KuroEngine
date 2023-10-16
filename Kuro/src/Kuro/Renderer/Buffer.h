@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Mesh.h"
+#include "Texture.h"
 
 namespace Kuro
 {
@@ -113,6 +114,8 @@ namespace Kuro
 
 		virtual void SetData(const void* data, uint32_t size) = 0;
 
+		virtual uint32_t GetHandle() const = 0;
+
 		virtual const BufferLayout& GetLayout() const = 0;
 		virtual void SetLayout(const BufferLayout& layout) = 0;
 
@@ -133,5 +136,23 @@ namespace Kuro
 		virtual uint32_t GetCount() const = 0;
 
 		static Ref<IndexBuffer> Create(uint32_t* indices, uint32_t count);		
+	};
+
+	class FrameBuffer
+	{
+	public:
+		virtual ~FrameBuffer() = default;
+
+		virtual void Bind() const = 0;
+		virtual void UnBind() const = 0;
+
+		virtual void SetData() = 0;
+
+		virtual void BindTexture() const = 0;
+
+		virtual Texture2D& GetTextureColor() const = 0;
+		virtual Texture2D& GetTextureDepth() const = 0;
+
+		static Ref<FrameBuffer> Create(ImageFormat formatColor, ImageFormat formatDepth);
 	};
 }

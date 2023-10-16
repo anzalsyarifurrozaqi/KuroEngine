@@ -14,8 +14,9 @@ private:
 	Kuro::Ref<Kuro::VertexArray> m_VertexArray;
 	Kuro::Ref<Kuro::VertexArray> m_SquareVA;
 	Kuro::Ref<Kuro::VertexBuffer> vertexBuffer;
-	Kuro::Ref<Kuro::Shader> m_Shader;
-	Kuro::Ref<Kuro::Shader> m_FlatColorShader;
+	Kuro::Ref<Kuro::FrameBuffer> opaqueBuffer;
+	Kuro::Ref<Kuro::Shader> shaderGridVert;
+	Kuro::Ref<Kuro::Shader> shaderGridFrag;
 	Kuro::ShaderLibrary m_ShaderLibrary;	
 
 	Kuro::OrthographicCameraController m_CameraController;

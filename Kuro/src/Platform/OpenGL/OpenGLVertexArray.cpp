@@ -30,7 +30,7 @@ namespace Kuro
 	{		
 		glCreateVertexArrays(1, &m_RendererID);
 
-		glBindVertexArray(m_RendererID);
+		//glBindVertexArray(m_RendererID);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray()
@@ -118,7 +118,7 @@ namespace Kuro
 
 	void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
 	{
-		glBindVertexArray(m_RendererID);
+		//glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();
 
 		m_IndexBuffer = indexBuffer;

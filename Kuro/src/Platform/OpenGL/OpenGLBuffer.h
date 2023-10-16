@@ -3,6 +3,8 @@
 #include "Kuro/Renderer/Buffer.h"
 #include "Kuro/Renderer/Mesh.h"
 
+#include <glad/glad.h>
+
 namespace Kuro
 {
 	class OpenGLVertexBuffer : public VertexBuffer
@@ -17,6 +19,8 @@ namespace Kuro
 		void Unbind() const override;
 
 		void SetData(const void* data, uint32_t size) override;
+
+		uint32_t GetHandle() const override { return m_RendererID; }
 
 		virtual const BufferLayout& GetLayout() const override { return m_Layout; }
 		virtual  void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
@@ -41,5 +45,31 @@ namespace Kuro
 	private:
 		uint32_t m_RendererID;
 		uint32_t m_Count;
+	};
+
+	class OpenGLFrameBuffer : public FrameBuffer
+	{
+	public:		
+		OpenGLFrameBuffer(ImageFormat formatColor, ImageFormat formatDepth);
+		virtual ~OpenGLFrameBuffer();
+
+		void Bind() const override;
+		void UnBind() const override;
+
+		void SetData() override;
+
+		void BindTexture() const override;
+
+		virtual Texture2D& GetTextureColor() const override { return *m_TexColor.get(); }
+		virtual Texture2D& GetTextureDepth() const override { return *m_TextDepth.get(); }
+
+	private:
+		uint32_t m_RendererID;
+
+		Ref<Texture2D> m_TexColor;
+		Ref<Texture2D> m_TextDepth;
+
+		int m_Width;
+		int m_Height;
 	};
 }

@@ -54,4 +54,16 @@ namespace Kuro
 		return nullptr;
 	}
 
+	Ref<FrameBuffer> FrameBuffer::Create(ImageFormat formatColor, ImageFormat formatDepth)
+	{
+		switch (Renderer::GetAPI())
+		{
+		case RendererAPI::API::None: KURO_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL: return CreateRef<OpenGLFrameBuffer>(formatColor, formatDepth);
+		}
+
+		KURO_CORE_ASSERT(false, "Unknown RenderAPI!");
+		return nullptr;		
+	}
+
 }

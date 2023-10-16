@@ -12,8 +12,10 @@ namespace Kuro
 		{
 			switch (format)
 			{
-			case ImageFormat::RGB8:  return GL_RGB;
-			case ImageFormat::RGBA8: return GL_RGBA;
+			case ImageFormat::RGB8:					return GL_RGB;
+			case ImageFormat::RGBA8:				return GL_RGBA;
+			case ImageFormat::RGBA16F:				return GL_RGBA16F;
+			case ImageFormat::DEPTH_COMPONENT24:	return GL_DEPTH_COMPONENT24;
 			}
 
 			KURO_CORE_ASSERT(false, "Unknown Image Format");
@@ -24,14 +26,23 @@ namespace Kuro
 		{
 			switch (format)
 			{
-			case ImageFormat::RGB8:  return GL_RGB8;
-			case ImageFormat::RGBA8: return GL_RGBA8;
+			case ImageFormat::RGB8:					return GL_RGB8;
+			case ImageFormat::RGBA8:				return GL_RGBA8;
+			case ImageFormat::RGBA16F:				return GL_RGBA16F;
+			case ImageFormat::DEPTH_COMPONENT24:	return GL_DEPTH_COMPONENT24;
 			}
 
 			KURO_CORE_ASSERT(false, "Unknown Image Format");
 			return 0;
 		}
 
+		static int GetNumMipMapLevels2D(int width, int height)
+		{
+			int levels = 1;
+			while ((width | height) >> levels)
+				levels += 1;
+			return levels;
+		}
 	}
 
 	OpenGLTexture2D::OpenGLTexture2D(const TextureSpecification& specification)
@@ -54,6 +65,7 @@ namespace Kuro
 	OpenGLTexture2D::OpenGLTexture2D(const std::string& path)
 	{
 		int width, height, channels;
+		int numMipmaps = 0;
 		stbi_set_flip_vertically_on_load(1);
 		stbi_uc* data = nullptr;
 		{
@@ -87,12 +99,15 @@ namespace Kuro
 
 			glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
 
-			glTextureParameteri(m_RendererID, GL_TEXTURE_MAX_LEVEL, 0);
+			numMipmaps = Utils::GetNumMipMapLevels2D(width, height);
+			
+			glTextureStorage2D(m_RendererID, numMipmaps, internalFormat, m_Width, m_Height);
+			glTextureSubImage2D(m_RendererID, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, data);						
+
+			glGenerateTextureMipmap(m_RendererID);
+			glTextureParameteri(m_RendererID, GL_TEXTURE_MAX_LEVEL, numMipmaps);
 			glTextureParameteri(m_RendererID, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTextureParameteri(m_RendererID, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-			
-			glTextureStorage2D(m_RendererID, 1, internalFormat, m_Width, m_Height);
-			glTextureSubImage2D(m_RendererID, 0, 0, 0, width, height, GL_RGB, GL_UNSIGNED_BYTE, data);						
 
 			stbi_image_free((void*)data);
 		}

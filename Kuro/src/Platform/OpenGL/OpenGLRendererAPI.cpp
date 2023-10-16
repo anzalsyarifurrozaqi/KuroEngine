@@ -83,7 +83,10 @@ namespace Kuro
 	{
 		//KURO_CORE_INFO("OpenGLRendererAPI::DrawIndexed");
 		vertexArray->Bind();
-		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();		
+		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();				
+		
+		for (Ref<VertexBuffer> buffer : vertexArray->GetVertexBuffers())
+			glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, buffer->GetHandle());
 
 		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 	}
@@ -91,7 +94,11 @@ namespace Kuro
 	void OpenGLRendererAPI::DrawLines(const Ref<VertexArray>& vertexArray, uint32_t vertexCount)
 	{
 		//KURO_CORE_INFO("OpenGLRendererAPI::DrawLines");
-		//vertexArray->Bind();
+		vertexArray->Bind();
+
+		for (Ref<VertexBuffer> buffer : vertexArray->GetVertexBuffers())
+			glBindBufferBase(GL_SHADER_STORAGE_BUFFER, 1, buffer->GetHandle());
+
 		glDrawArrays(GL_TRIANGLES, 0, vertexCount);
 	}
 

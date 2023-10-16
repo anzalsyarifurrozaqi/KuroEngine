@@ -8,7 +8,10 @@ namespace Kuro
 		R8,
 		RGB8,
 		RGBA8,
-		RGBA32F
+		RGBA32F,
+
+		RGBA16F,
+		DEPTH_COMPONENT24
 	};
 
 	struct TextureSpecification

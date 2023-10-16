@@ -14,9 +14,7 @@ namespace Kuro
 	}
 
 	void Model::LoadModel(std::string path)
-	{
-		KURO_CORE_TRACE("Model::LoadModel");
-		KURO_CORE_TRACE(path);
+	{		
 		Assimp::Importer import;
 		const aiScene* scene = import.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_PreTransformVertices);
 
@@ -31,8 +29,6 @@ namespace Kuro
 
 	void Model::ProcessNode(aiNode* node, const aiScene* scene)
 	{
-		KURO_CORE_TRACE("Model::ProcessNode");
-
 		for (unsigned int i = 0; i < node->mNumMeshes; i++)
 		{
 			aiMesh* aimesh = scene->mMeshes[node->mMeshes[i]];
@@ -46,8 +42,7 @@ namespace Kuro
 	}
 
 	void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene)
-	{
-		KURO_CORE_TRACE("Model::ProcessMesh");
+	{		
 		std::vector<VertexData> vertices;
 		std::vector<unsigned int> indices;		
 

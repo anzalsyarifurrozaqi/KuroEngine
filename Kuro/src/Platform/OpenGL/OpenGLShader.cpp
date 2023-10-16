@@ -90,8 +90,6 @@ namespace Kuro
 	OpenGLShader::OpenGLShader(const std::string& filepath)
 		: m_FilePath(filepath)
 	{
-		KURO_CORE_INFO("OpenGLShader::OpenGLShader m_FilePath : {}", m_FilePath);
-
 		Utils::CreateCacheDirectoryIfNeeded();
 
 		std::string source = ReadFile(filepath);
@@ -110,15 +108,11 @@ namespace Kuro
 		auto lastDot = filepath.rfind('.');
 		auto count = lastDot == std::string::npos ? filepath.size() - lastSlash : lastDot - lastSlash;
 		m_Name = filepath.substr(lastSlash, count);
-
-		KURO_CORE_INFO("OpenGLShader::OpenGLShader name : {0}", m_Name);
 	}
 
 	OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 		: m_Name(name)
 	{
-		KURO_CORE_INFO("OpenGLShader::OpenGLShader name : {0}", m_Name);
-
 		std::unordered_map<GLenum, std::string> sources;
 		sources[GL_VERTEX_SHADER] = vertexSrc;
 		sources[GL_FRAGMENT_SHADER] = fragmentSrc;
@@ -309,9 +303,6 @@ namespace Kuro
 		shaderData.clear();
 		for (auto&& [stage, source] : shaderSources)
 		{
-			KURO_CORE_TRACE(stage);
-			KURO_CORE_TRACE(source);
-
 			const GLuint shader = glCreateShader(stage);
 			const char* shaderSource = source.c_str();
 			glShaderSource(shader, 1, &shaderSource, nullptr);
