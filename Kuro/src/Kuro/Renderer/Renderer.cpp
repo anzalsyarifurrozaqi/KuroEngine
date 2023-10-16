@@ -41,7 +41,7 @@ namespace Kuro
 
 		Ref<VertexArray> CubeVertexArray;
 		Ref<VertexBuffer> CubeVertexBuffer;
-		Ref<Shader> CubeShader;
+		Ref<Shader> CubeShader; // TODO : bisa diganti scene shader
 
 		uint32_t CubeIndexCount = 0;
 		Instance* CubeVertexBufferBase = nullptr;
@@ -233,6 +233,8 @@ namespace Kuro
 
 	void Renderer::Flush()
 	{
+		s_Data.CubeShader->Bind();
+
 		////////////////////////
 		// MODEL //////////////
 		//////////////////////		
@@ -245,7 +247,6 @@ namespace Kuro
 			for (uint32_t i = 0; i < s_Data.TextureSlotIndex; i++)
 				s_Data.TextureSlots[i]->Bind(i);
 
-			s_Data.CubeShader->Bind();
 			//RenderCommand::SetPolygonMode(PolygonMode::LINE); // INFO : Temporary to draw wireframe
 			RenderCommand::DrawIndexed(s_Data.CubeVertexArray, s_Data.CubeIndexCount);
 		}		
@@ -262,7 +263,7 @@ namespace Kuro
 			for (uint32_t i = 0; i < s_Data.TextureSlotIndex; i++)
 				s_Data.TextureSlots[i]->Bind(i);
 
-			s_Data.CubeShader->Bind();
+			//s_Data.CubeShader->Bind();
 			//RenderCommand::SetPolygonMode(PolygonMode::LINE); // INFO : Temporary to draw wireframe
 			RenderCommand::DrawIndexed(s_Data.PlaneVertexArray, s_Data.PlaneIndexCount);
 		}

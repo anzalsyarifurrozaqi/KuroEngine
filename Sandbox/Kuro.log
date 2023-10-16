@@ -1,13 +1,13 @@
-[13:19:29] [info] KURO: Creating Window Kuro Engine (1280, 720)
-[13:19:29] [info] KURO: OpenGL Info:
-[13:19:29] [info] KURO:   Vendor: NVIDIA Corporation
-[13:19:29] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
-[13:19:29] [info] KURO:   Version: 4.6.0 NVIDIA 537.58
-[13:19:29] [info] KURO: Renderer::Init
-[13:19:29] [info] KURO: OpenGLRendererAPI::Init
-[13:19:29] [info] KURO: OpenGLShader::ReadFile
-[13:19:29] [info] KURO: OpenGLShader::PreProcess
-[13:19:29] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
-[13:19:29] [info] KURO: OpenGLShader::CreateProgram
-[13:19:29] [warning] KURO: Shader creation took 1.1352001 ms
-[13:19:29] [trace] KURO: OpenGLFrameBuffer::OpenGLFrameBuffer
+[14:42:17] [info] KURO: Creating Window Kuro Engine (1280, 720)
+[14:42:17] [info] KURO: OpenGL Info:
+[14:42:17] [info] KURO:   Vendor: NVIDIA Corporation
+[14:42:17] [info] KURO:   Renderer: NVIDIA GeForce RTX 3060/PCIe/SSE2
+[14:42:17] [info] KURO:   Version: 4.6.0 NVIDIA 537.58
+[14:42:17] [info] KURO: Renderer::Init
+[14:42:17] [info] KURO: OpenGLRendererAPI::Init
+[14:42:17] [info] KURO: OpenGLShader::ReadFile
+[14:42:17] [info] KURO: OpenGLShader::PreProcess
+[14:42:17] [info] KURO: OpenGLShader::CompileOrGetOnpenGLBinaries
+[14:42:17] [info] KURO: OpenGLShader::CreateProgram
+[14:42:17] [warning] KURO: Shader creation took 1.7930002 ms
+[14:42:17] [trace] KURO: OpenGLFrameBuffer::OpenGLFrameBuffer
